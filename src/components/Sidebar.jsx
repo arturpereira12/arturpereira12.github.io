@@ -39,9 +39,6 @@ const Sidebar = ({ darkMode }) => {
                                 alt="Artur Pereira"
                                 className="w-full h-full rounded-full object-cover"
                                 style={{
-                                    objectPosition: '50% 40%'
-                                }}
-                                style={{
                                     objectPosition: '90% center',
                                     transform: 'scale(1.2)'
                                 }}
