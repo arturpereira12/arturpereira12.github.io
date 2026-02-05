@@ -49,7 +49,7 @@ const Home = ({ darkMode }) => {
                                 </p>
                                 
                                 <p className="leading-relaxed">
-                                    I have always found a quiet magic in building things, which is exactly why I ended up in Computer Science. I am captivated by technology and AI, not just for the code, but for their potential to make the everyday smarter and simpler. I want to craft solutions that don't just solve problems, but feel inevitable in their elegance.
+                                    Tech has always been more than just a major for me—it's my toolkit for solving problems. Currently studying Computer Science at UFPB, I focus on bridging the gap between academic theory and practical development. From Data Science to AI and Software Engineering, I am committed to continuous evolution!
                                 </p>
                             </div>
                         </div>
@@ -109,7 +109,7 @@ const Home = ({ darkMode }) => {
                                 Areas of Focus
                             </p>
                             <div className="grid md:grid-cols-3 gap-4">
-                                {['Engineering Systems', 'Data Intelligence', 'Applied AI'].map((area, index) => (
+                                {['Software Development', 'Data Intelligence', 'Computer Vision'].map((area, index) => (
                                     <div
                                         key={area}
                                         className={`p-4 rounded-lg border transition-all duration-300 hover:shadow-lg ${
@@ -167,7 +167,7 @@ const Home = ({ darkMode }) => {
             </div>
 
             {/* Piano Animation Section */}
-            <section className={`h-[600px] w-full relative overflow-hidden transition-colors duration-300 ${
+            <section className={`h-[200px] w-full relative overflow-hidden transition-colors duration-300 ${
                 darkMode ? 'bg-[#0a1628]' : 'bg-[#fdf8f3]'
             }`}>
                 <div className="absolute inset-0">

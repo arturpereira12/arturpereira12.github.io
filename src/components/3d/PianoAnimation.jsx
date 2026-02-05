@@ -47,17 +47,18 @@ const PianoAnimation = ({ darkMode }) => {
         }
     }
 
-    // Create golden particles when key is played
+    // Create particles when key is played
     const createParticles = (keyNum) => {
         const keyPos = getKeyPosition(keyNum)
-        const newParticles = Array.from({ length: 8 }, (_, i) => ({
+        
+        const newParticles = Array.from({ length: 6 }, (_, i) => ({
             id: Math.random(),
-            x: keyPos.x + keyPos.width / 2,
-            y: keyPos.isBlack ? 40 : 80,
-            velocityX: (Math.random() - 0.5) * 4,
-            velocityY: -Math.random() * 3 - 2,
+            x: keyPos.x + keyPos.width / 2, // center of key
+            y: -30, // start above the piano
+            velocityX: (Math.random() - 0.5) * 3,
+            velocityY: -Math.random() * 2 - 1,
             life: 1,
-            size: Math.random() * 4 + 2
+            size: Math.random() * 3 + 2
         }))
         
         setParticles(prev => [...prev, ...newParticles])
@@ -116,17 +117,18 @@ const PianoAnimation = ({ darkMode }) => {
             }`} />
             
             {/* Minimal particles */}
-            <AnimatePresence>
-                {particles.map(particle => (
-                    <div
-                        key={particle.id}
-                        className="absolute pointer-events-none"
-                        style={{
-                            left: `${particle.x}px`,
-                            top: `${particle.y}px`,
-                            transform: 'translate(-50%, -50%)',
-                        }}
-                    >
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                <AnimatePresence>
+                    {particles.map(particle => (
+                        <div
+                            key={particle.id}
+                            className="absolute pointer-events-none"
+                            style={{
+                                left: `${particle.x}px`,
+                                top: `${particle.y}px`,
+                                transform: 'translate(-50%, -50%)',
+                            }}
+                        >
                         <div
                             className="rounded-full"
                             style={{
@@ -135,17 +137,15 @@ const PianoAnimation = ({ darkMode }) => {
                                 backgroundColor: darkMode 
                                     ? `rgba(102, 179, 255, ${particle.life})` 
                                     : `rgba(0, 102, 204, ${particle.life})`,
-                                boxShadow: darkMode
-                                    ? `0 0 ${particle.size * 2}px rgba(102, 179, 255, ${particle.life * 0.3})`
-                                    : `0 0 ${particle.size * 2}px rgba(0, 102, 204, ${particle.life * 0.3})`,
                             }}
                         />
                     </div>
                 ))}
             </AnimatePresence>
+            </div>
 
             {/* Minimal Piano */}
-            <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2">
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <div className="relative flex">
                     {/* White keys - outline only */}
                     {Array.from({ length: 52 }, (_, i) => {
