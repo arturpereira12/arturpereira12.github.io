@@ -8,11 +8,11 @@ const Sidebar = ({ darkMode }) => {
     const [hoveredLink, setHoveredLink] = useState(null)
 
     const navLinks = [
-        { name: 'INTRO', path: '/' },
-        { name: 'EXPERIENCE', path: '/experiences' },
-        { name: 'PROJECTS', path: '/projects' },
-        { name: 'AWARDS', path: '/awards' },
-        { name: 'CONTACT', path: '/contact' },
+        { name: 'Intro', path: '/' },
+        { name: 'Experience', path: '/experiences' },
+        { name: 'Projects', path: '/projects' },
+        { name: 'Awards', path: '/awards' },
+        { name: 'Contact', path: '/contact' },
     ]
 
 
@@ -35,9 +35,12 @@ const Sidebar = ({ darkMode }) => {
                     <div className="flex items-center space-x-3 mb-6">
                         <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
                             <img
-                                src={`${import.meta.env.BASE_URL}eu.png`}
+                                src={`${import.meta.env.BASE_URL}artur.jpg`}
                                 alt="Artur Pereira"
                                 className="w-full h-full rounded-full object-cover"
+                                style={{
+                                    objectPosition: '50% 40%'
+                                }}
                                 style={{
                                     objectPosition: '90% center',
                                     transform: 'scale(1.2)'
@@ -68,7 +71,7 @@ const Sidebar = ({ darkMode }) => {
                         darkMode ? 'text-gray-400' : 'text-gray-600'
                     }`}>
                         <p className="mb-3">
-                            Computer Science student passionate about Software Engineering and Machine Learning.
+                            Computer Science student @UFPB
                         </p>
                         <p className={`text-xs font-mono ${
                             darkMode ? 'text-gray-500' : 'text-gray-500'
@@ -177,7 +180,7 @@ const Sidebar = ({ darkMode }) => {
                             <span className="font-mono text-xs">Email</span>
                         </a>
                         <a
-                            href={`${import.meta.env.BASE_URL}resume.pdf`}
+                            href={`${import.meta.env.BASE_URL}Pereira-Artur-CV.pdf`}
                             download
                             className={`flex items-center space-x-2 text-sm transition-colors ${
                                 darkMode

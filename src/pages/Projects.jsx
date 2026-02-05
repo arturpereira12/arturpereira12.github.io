@@ -13,7 +13,7 @@ const Projects = ({ darkMode }) => {
         {
             title: 'Gestar',
             description: 'Intelligent school communication platform developed at NewHack/OpenAI hackathon. Built with Next.js, TypeScript, and OpenAI API for smart parent-school interactions and automated communication workflows.',
-            github: 'https://github.com/arturpereira12/gestar',
+            github: 'https://github.com/josevitorrodriguess/hackathon_devsImpacto',
             image: 'logo_gestar_vertical_HD.png',
             number: '02'
         },

@@ -49,8 +49,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['Space Mono', 'Courier New', 'monospace'],
+        sans: ['Poppins', 'system-ui', 'sans-serif'],
+        mono: ['Poppins', 'Space Mono', 'Courier New', 'monospace'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

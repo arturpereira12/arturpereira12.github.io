@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { Canvas } from '@react-three/fiber'
-import DataSculpture from '../components/3d/DataSculpture'
+import PianoAnimation from '../components/3d/PianoAnimation'
 
 const Home = ({ darkMode }) => {
     return (
@@ -167,15 +166,12 @@ const Home = ({ darkMode }) => {
                 </div>
             </div>
 
-            {/* Data Sculpture Section */}
+            {/* Piano Animation Section */}
             <section className={`h-[600px] w-full relative overflow-hidden transition-colors duration-300 ${
                 darkMode ? 'bg-[#0a1628]' : 'bg-[#fdf8f3]'
             }`}>
                 <div className="absolute inset-0">
-                    <Canvas camera={{ position: [0, 0, 8], fov: 60 }}>
-                        <ambientLight intensity={0.5} />
-                        <DataSculpture darkMode={darkMode} />
-                    </Canvas>
+                    <PianoAnimation darkMode={darkMode} />
                 </div>
             </section>
         </div>

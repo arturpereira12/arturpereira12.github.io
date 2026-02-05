@@ -34,8 +34,7 @@ const Contact = ({ darkMode }) => {
                     <p className={`text-lg ${
                         darkMode ? 'text-gray-400' : 'text-gray-600'
                     }`}>
-                        I'm always interested in discussing new opportunities, innovative projects, 
-                        or just connecting with fellow tech enthusiasts.
+                        If you have any questions or would you like to discuss something specific with me, just get in touch!
                     </p>
                 </div>
 
@@ -133,7 +132,7 @@ const Contact = ({ darkMode }) => {
                             LinkedIn
                         </a>
                         <a
-                            href={`${import.meta.env.BASE_URL}resume.pdf`}
+                            href={`${import.meta.env.BASE_URL}Pereira-Artur-CV.pdf`}
                             download
                             className={`col-span-2 px-4 py-3 rounded-lg text-sm font-mono text-center transition-all ${
                                 darkMode

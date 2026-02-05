@@ -59,11 +59,11 @@ const MobileNav = ({ darkMode }) => {
                                     <div className="flex items-center space-x-3 mb-4">
                                         <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
                                             <img
-                                                src={`${import.meta.env.BASE_URL}eu.png`}
+                                                src={`${import.meta.env.BASE_URL}artur.jpg`}
                                                 alt="Artur Pereira"
                                                 className="w-full h-full rounded-full object-cover"
                                                 style={{
-                                                    objectPosition: '90% center',
+                                                    objectPosition: '50% 70%',
                                                     transform: 'scale(1.2)'
                                                 }}
                                                 onError={(e) => {
@@ -142,7 +142,7 @@ const MobileNav = ({ darkMode }) => {
                                             <span className="font-mono text-xs">Email</span>
                                         </a>
                                         <a
-                                            href={`${import.meta.env.BASE_URL}resume.pdf`}
+                                            href={`${import.meta.env.BASE_URL}Pereira-Artur-CV.pdf`}
                                             download
                                             className={`flex items-center space-x-2 text-sm transition-colors ${
                                                 darkMode

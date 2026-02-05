@@ -9,17 +9,27 @@ const Experiences = ({ darkMode }) => {
             period: 'Jun 2025 - Sep 2025',
             location: 'Brasília, DF, Brazil',
             description: 'Database structuring with over 40,000 contacts using Pandas and R for data analysis and organization.',
-            current: true
+            current: false,
+            logo: 'tabata.jpg'
         },
         {
             title: 'AI Intern',
-            company: 'ARIA - AI Lab (UFPB)',
+            company: 'FILMAEU - ARIA - AI Lab (UFPB)',
             period: 'Feb 2025 - Jul 2025',
             location: 'João Pessoa, PB, Brazil',
             description: 'Development of dynamic visual effects using OpenCV for FilmaEu startup.',
-            current: true,
-            logo: 'aria.png',
+            current: false,
+            logo: 'filmaeu.png',
             asset: 'filmaeu.png'
+        },
+        {
+            title: 'Data Scientist Intern',
+            company: 'LOTEP-PB - ARIA - AI Lab (UFPB)',
+            period: 'Nov 2025 - Current',
+            location: 'João Pessoa, PB, Brazil',
+            description: 'Generation of strategic insights using Python, Pandas and Dash for LOTEP.',
+            current: true,
+            logo: 'lotep.jpg'
         },
         {
             title: 'Trainee',
@@ -49,7 +59,7 @@ const Experiences = ({ darkMode }) => {
                     <p className={`text-lg font-mono ${
                         darkMode ? 'text-gray-400' : 'text-gray-600'
                     }`}>
-                        My journey in tech
+                        Experiences in technology
                     </p>
                 </div>
 
