@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Github, Linkedin, Instagram, Mail, FileText } from 'lucide-react'
+import { Menu, X, Github, Linkedin, Mail, FileText } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 import FolderIcon from './FolderIcon'
 
@@ -12,7 +12,7 @@ const MobileNav = ({ darkMode }) => {
         { name: 'INTRO', path: '/' },
         { name: 'EXPERIENCE', path: '/experiences' },
         { name: 'PROJECTS', path: '/projects' },
-        { name: 'BOOKS', path: '/books' },
+        { name: 'AWARDS', path: '/awards' },
         { name: 'CONTACT', path: '/contact' },
     ]
 
@@ -23,8 +23,8 @@ const MobileNav = ({ darkMode }) => {
                 onClick={() => setIsOpen(!isOpen)}
                 className={`fixed top-6 left-6 z-50 p-3 rounded-full transition-colors ${
                     darkMode
-                        ? 'bg-gray-800 hover:bg-gray-700 text-white'
-                        : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
+                        ? 'bg-[#1a2d4a] hover:bg-[#243a5e] text-white'
+                        : 'bg-[#e6d5c3] hover:bg-[#d5c4a1] text-gray-900'
                 }`}
             >
                 {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -50,17 +50,17 @@ const MobileNav = ({ darkMode }) => {
                             exit={{ x: '-100%' }}
                             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
                             className={`fixed top-0 left-0 h-full w-80 z-40 overflow-y-auto ${
-                                darkMode ? 'bg-[#0a0a0a]' : 'bg-white'
+                                darkMode ? 'bg-[#0a1628]' : 'bg-[#fdf8f3]'
                             }`}
                         >
                             <div className="p-8 pt-20 space-y-8">
                                 {/* Profile */}
                                 <div>
                                     <div className="flex items-center space-x-3 mb-4">
-                                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
                                             <img
                                                 src={`${import.meta.env.BASE_URL}eu.png`}
-                                                alt="Rafael Torres"
+                                                alt="Artur Pereira"
                                                 className="w-full h-full rounded-full object-cover"
                                                 style={{
                                                     objectPosition: '90% center',
@@ -71,13 +71,13 @@ const MobileNav = ({ darkMode }) => {
                                                     e.target.nextElementSibling.style.display = 'flex';
                                                 }}
                                             />
-                                            <span className="text-white font-bold text-lg hidden">RT</span>
+                                            <span className="text-white font-bold text-lg hidden">AP</span>
                                         </div>
                                         <div>
                                             <h2 className={`text-lg font-bold ${
                                                 darkMode ? 'text-white' : 'text-gray-900'
                                             }`}>
-                                                Rafael Torres
+                                                Artur Pereira
                                             </h2>
                                             <p className={`text-xs font-mono ${
                                                 darkMode ? 'text-gray-400' : 'text-gray-600'
@@ -101,11 +101,11 @@ const MobileNav = ({ darkMode }) => {
                                                 `flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-mono transition-colors ${
                                                     isActive
                                                         ? darkMode
-                                                            ? 'bg-gray-800 text-white'
-                                                            : 'bg-gray-100 text-gray-900'
+                                                            ? 'bg-[#1a2d4a] text-white'
+                                                            : 'bg-[#e6d5c3] text-gray-900'
                                                         : darkMode
-                                                        ? 'text-gray-400 hover:bg-gray-800 hover:text-white'
-                                                        : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                                                        ? 'text-gray-400 hover:bg-[#1a2d4a] hover:text-white'
+                                                        : 'text-gray-600 hover:bg-[#ede0d4] hover:text-gray-900'
                                                 }`
                                             }
                                         >
@@ -131,7 +131,7 @@ const MobileNav = ({ darkMode }) => {
                                     </p>
                                     <div className="space-y-2">
                                         <a
-                                            href="mailto:rafaeltorresng@gmail.com"
+                                            href="mailto:arturguedespereira@gmail.com"
                                             className={`flex items-center space-x-2 text-sm transition-colors ${
                                                 darkMode
                                                     ? 'text-gray-400 hover:text-white'
@@ -163,7 +163,7 @@ const MobileNav = ({ darkMode }) => {
                                     }}
                                 >
                                     <a
-                                        href="https://github.com/rafaeltorresng"
+                                        href="https://github.com/arturpereira12"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className={`transition-colors ${
@@ -175,7 +175,7 @@ const MobileNav = ({ darkMode }) => {
                                         <Github size={18} />
                                     </a>
                                     <a
-                                        href="https://linkedin.com/in/rafaeltng"
+                                        href="https://linkedin.com/in/arturpereira12"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className={`transition-colors ${
@@ -185,18 +185,6 @@ const MobileNav = ({ darkMode }) => {
                                         }`}
                                     >
                                         <Linkedin size={18} />
-                                    </a>
-                                    <a
-                                        href="https://www.instagram.com/rafatorresg_"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={`transition-colors ${
-                                            darkMode
-                                                ? 'text-gray-400 hover:text-white'
-                                                : 'text-gray-600 hover:text-gray-900'
-                                        }`}
-                                    >
-                                        <Instagram size={18} />
                                     </a>
                                 </div>
                             </div>

@@ -1,19 +1,13 @@
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Send } from 'lucide-react'
+import { Mail, MapPin, Send } from 'lucide-react'
 
 const Contact = ({ darkMode }) => {
     const contactInfo = [
         {
             icon: Mail,
             label: 'Email',
-            value: 'rafaeltorresng@gmail.com',
-            link: 'mailto:rafaeltorresng@gmail.com'
-        },
-        {
-            icon: Phone,
-            label: 'Phone',
-            value: '+55 81 98251-2792',
-            link: 'tel:+5581982512792'
+            value: 'arturguedespereira@gmail.com',
+            link: 'mailto:arturguedespereira@gmail.com'
         },
         {
             icon: MapPin,
@@ -55,13 +49,13 @@ const Contact = ({ darkMode }) => {
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                             className={`p-6 rounded-lg border transition-all duration-300 ${
                                 darkMode
-                                    ? 'bg-[#1a1a1a] border-[#2a2a2a] hover:border-[#3a3a3a]'
-                                    : 'bg-white border-gray-200 hover:border-gray-300'
+                                    ? 'bg-[#0d1a2d] border-[#1a2d4a] hover:border-[#2a4a6a]'
+                                    : 'bg-[#f5ebe0] border-[#e6d5c3] hover:border-[#d5c4a1]'
                             }`}
                         >
                             <div className="flex items-center gap-4">
                                 <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-                                    darkMode ? 'bg-gray-800' : 'bg-gray-100'
+                                    darkMode ? 'bg-[#1a2d4a]' : 'bg-[#e6d5c3]'
                                 }`}>
                                     <info.icon size={20} className={
                                         darkMode ? 'text-gray-300' : 'text-gray-700'
@@ -104,8 +98,8 @@ const Contact = ({ darkMode }) => {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className={`p-6 rounded-lg border ${
                         darkMode
-                            ? 'bg-[#1a1a1a] border-[#2a2a2a]'
-                            : 'bg-gray-50 border-gray-200'
+                            ? 'bg-[#0d1a2d] border-[#1a2d4a]'
+                            : 'bg-[#f5ebe0] border-[#e6d5c3]'
                     }`}
                 >
                     <p className={`text-xs font-mono uppercase tracking-wider mb-4 ${
@@ -115,48 +109,36 @@ const Contact = ({ darkMode }) => {
                     </p>
                     <div className="grid grid-cols-2 gap-3">
                         <a
-                            href="https://github.com/rafaeltorresng"
+                            href="https://github.com/arturpereira12"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`px-4 py-3 rounded-lg text-sm font-mono text-center transition-all ${
                                 darkMode
-                                    ? 'bg-gray-800 text-white hover:bg-gray-700'
-                                    : 'bg-white text-gray-900 hover:bg-gray-100 border border-gray-200'
+                                    ? 'bg-[#1a2d4a] text-white hover:bg-[#243a5e]'
+                                    : 'bg-[#ede0d4] text-gray-900 hover:bg-[#e6d5c3] border border-[#d5c4a1]'
                             }`}
                         >
                             GitHub
                         </a>
                         <a
-                            href="https://linkedin.com/in/rafaeltng"
+                            href="https://linkedin.com/in/arturpereira12"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`px-4 py-3 rounded-lg text-sm font-mono text-center transition-all ${
                                 darkMode
-                                    ? 'bg-gray-800 text-white hover:bg-gray-700'
-                                    : 'bg-white text-gray-900 hover:bg-gray-100 border border-gray-200'
+                                    ? 'bg-[#1a2d4a] text-white hover:bg-[#243a5e]'
+                                    : 'bg-[#ede0d4] text-gray-900 hover:bg-[#e6d5c3] border border-[#d5c4a1]'
                             }`}
                         >
                             LinkedIn
                         </a>
                         <a
-                            href="https://www.instagram.com/rafatorresg_"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`px-4 py-3 rounded-lg text-sm font-mono text-center transition-all ${
-                                darkMode
-                                    ? 'bg-gray-800 text-white hover:bg-gray-700'
-                                    : 'bg-white text-gray-900 hover:bg-gray-100 border border-gray-200'
-                            }`}
-                        >
-                            Instagram
-                        </a>
-                        <a
                             href={`${import.meta.env.BASE_URL}resume.pdf`}
                             download
-                            className={`px-4 py-3 rounded-lg text-sm font-mono text-center transition-all ${
+                            className={`col-span-2 px-4 py-3 rounded-lg text-sm font-mono text-center transition-all ${
                                 darkMode
-                                    ? 'bg-gray-800 text-white hover:bg-gray-700'
-                                    : 'bg-white text-gray-900 hover:bg-gray-100 border border-gray-200'
+                                    ? 'bg-[#1a2d4a] text-white hover:bg-[#243a5e]'
+                                    : 'bg-[#ede0d4] text-gray-900 hover:bg-[#e6d5c3] border border-[#d5c4a1]'
                             }`}
                         >
                             Resume
@@ -172,11 +154,11 @@ const Contact = ({ darkMode }) => {
                     className="mt-8"
                 >
                     <a
-                        href="mailto:rafaeltorresng@gmail.com"
+                        href="mailto:arturguedespereira@gmail.com"
                         className={`group flex items-center justify-center gap-2 w-full px-6 py-4 rounded-lg font-mono text-sm transition-all ${
                             darkMode
-                                ? 'bg-white text-black hover:bg-gray-200'
-                                : 'bg-gray-900 text-white hover:bg-gray-800'
+                                ? 'bg-blue-600 text-white hover:bg-blue-700'
+                                : 'bg-[#0066cc] text-white hover:bg-[#0052a3]'
                         }`}
                     >
                         <Send size={16} />

@@ -4,71 +4,31 @@ import { ExternalLink, MapPin, Calendar } from 'lucide-react'
 const Experiences = ({ darkMode }) => {
     const experience = [
         {
-            title: 'Software Engineer',
-            company: 'SeverinoBiu',
-            period: 'Nov 2025 - Present',
-            location: 'Brazil',
-            description: 'Crafting tools.',
-            current: true,
-            logo: 'SB.png'
+            title: 'Summer Intern (IT & Data)',
+            company: 'Office of Federal Deputy Tabata Amaral',
+            period: 'Jun 2025 - Sep 2025',
+            location: 'Brasília, DF, Brazil',
+            description: 'Database structuring with over 40,000 contacts using Pandas and R for data analysis and organization.',
+            current: true
         },
         {
-            title: 'AI Researcher (ARIA & UPenn)',
-            company: 'ARIA',
-            period: 'Aug 2025 - Present',
+            title: 'AI Intern',
+            company: 'ARIA - AI Lab (UFPB)',
+            period: 'Feb 2025 - Jul 2025',
             location: 'João Pessoa, PB, Brazil',
-            description: 'Conducting collaborative research with UPenn on machine learning for healthcare applications.',
+            description: 'Development of dynamic visual effects using OpenCV for FilmaEu startup.',
             current: true,
-            logo: 'aria.png'
-        },
-        {
-            title: 'Student Member',
-            company: 'TAIL - Technology and Artificial Intelligence League',
-            period: 'July 2025 - Present',
-            location: '',
-            description: 'Advancing skills in Machine Learning, Data Science, and Deep Learning by developing AI projects.',
-            current: true,
-            logo: 'tail.png'
-        },
-        {
-            title: 'Software Engineer',
-            company: 'deco',
-            period: 'Oct 2025 (1 month)',
-            location: 'Rio de Janeiro, Brazil',
-            description: 'Engineered tools for an internal application that served as the data backbone for a client product.',
-            current: false,
-            logo: 'deco.png'
-        },
-        {
-            title: 'AI Researcher Intern',
-            company: 'MGITECH',
-            period: 'March 2025 - Oct 2025',
-            location: 'Mogi das Cruzes, SP, Brazil',
-            description: 'Designed and deployed AI systems enhancing client satisfaction and decision-making speed through intelligent data workflows.',
-            current: false,
-            logo: 'mgitech-logo.jpeg',
-            link: 'https://pt.linkedin.com/feed/update/urn:li:activity:7356288758721183745',
-            asset: 'mgi.png'
-        },
-        {
-            title: 'Data Scientist',
-            company: 'TRIL Lab',
-            period: 'Dec 2024 - March 2025',
-            location: 'João Pessoa, PB, Brazil',
-            description: 'AI research support: data preparation, exploratory analysis, and development of multi-agent systems for sales automation (CrewAI).',
-            current: false,
-            logo: 'tril-logo.png'
+            logo: 'aria.png',
+            asset: 'filmaeu.png'
         },
         {
             title: 'Trainee',
-            company: 'Trilha',
-            period: 'July 2024 - Dec 2024',
+            company: 'TRILHA Program (UFPB)',
+            period: 'Aug 2024 - Dec 2024',
             location: 'João Pessoa, PB, Brazil',
-            description: 'Developed skills in AI/programming logic. Gained experience with software development tools, best practices, and ML pipelines.',
+            description: 'Solid foundation in Python applied to mentorship projects. Developed programming logic and AI skills.',
             current: false,
-            logo: 'trilha.png',
-            link: 'https://www.linkedin.com/feed/update/urn:li:activity:7289706489248641025/?originalSubdomain=pt',
-            asset: 'Trilhahack.png'
+            logo: 'trilha.png'
         }
     ]
 
@@ -103,8 +63,8 @@ const Experiences = ({ darkMode }) => {
                             whileHover={{ x: 4 }}
                             className={`elegant-card p-6 rounded-lg border transition-all duration-300 hover:shadow-xl group ${
                                 darkMode
-                                    ? 'bg-[#1a1a1a] border-[#2a2a2a] hover:border-[#3a3a3a]'
-                                    : 'bg-gray-50 border-gray-200 hover:border-gray-300'
+                                    ? 'bg-[#0d1a2d] border-[#1a2d4a] hover:border-[#2a4a6a]'
+                                    : 'bg-[#f5ebe0] border-[#e6d5c3] hover:border-[#d5c4a1]'
                             }`}
                         >
                             <div className="flex items-start gap-4">
@@ -164,8 +124,8 @@ const Experiences = ({ darkMode }) => {
                                         {exp.current && (
                                             <span className={`px-2 py-1 text-xs font-mono rounded ${
                                                 darkMode
-                                                    ? 'bg-green-900/30 text-green-400'
-                                                    : 'bg-green-100 text-green-700'
+                                                    ? 'bg-blue-900/30 text-blue-400'
+                                                    : 'bg-blue-100 text-blue-700'
                                             }`}>
                                                 Current
                                             </span>
@@ -203,7 +163,7 @@ const Experiences = ({ darkMode }) => {
                                                 className="inline-block group"
                                             >
                                                 <div className={`relative overflow-hidden rounded border ${
-                                                    darkMode ? 'border-gray-800' : 'border-gray-200'
+                                                    darkMode ? 'border-[#1a2d4a]' : 'border-[#e6d5c3]'
                                                 }`}>
                                                     <img
                                                         src={`${import.meta.env.BASE_URL}${exp.asset}`}

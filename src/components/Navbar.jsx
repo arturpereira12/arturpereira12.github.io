@@ -15,8 +15,8 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
 
     return (
         <nav className={`fixed top-0 w-full backdrop-blur-sm z-50 border-b transition-colors duration-300 ${darkMode
-            ? 'bg-black/95 border-gray-800'
-            : 'bg-white/95 border-gray-200'
+            ? 'bg-[#0a1628]/95 border-[#1a2d4a]'
+            : 'bg-[#fdf8f3]/95 border-[#e6d5c3]'
             }`}>
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="flex justify-between items-center py-4">
@@ -25,7 +25,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                         className={`text-xl font-semibold transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'
                             }`}
                     >
-                        <motion.span whileHover={{ scale: 1.02 }}>RT.</motion.span>
+                        <motion.span whileHover={{ scale: 1.02 }}>AP.</motion.span>
                     </NavLink>
 
                     {/* Desktop Navigation */}
@@ -46,7 +46,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                         {/* Dark/Light Mode Toggle */}
                         <motion.button
                             onClick={toggleDarkMode}
-                            className={`relative w-14 h-8 rounded-full p-1 transition-colors duration-300 focus:outline-none ${darkMode ? 'bg-gray-700' : 'bg-blue-400'
+                            className={`relative w-14 h-8 rounded-full p-1 transition-colors duration-300 focus:outline-none ${darkMode ? 'bg-[#1a2d4a]' : 'bg-[#0066cc]'
                                 }`}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
@@ -77,7 +77,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                         {/* Mobile Dark/Light Mode Toggle */}
                         <motion.button
                             onClick={toggleDarkMode}
-                            className={`relative w-14 h-8 rounded-full p-1 transition-colors duration-300 focus:outline-none ${darkMode ? 'bg-gray-700' : 'bg-blue-400'
+                            className={`relative w-14 h-8 rounded-full p-1 transition-colors duration-300 focus:outline-none ${darkMode ? 'bg-[#1a2d4a]' : 'bg-[#0066cc]'
                                 }`}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
@@ -98,8 +98,8 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                             className={`p-2 rounded-lg transition-colors ${darkMode
-                                ? 'hover:bg-gray-800 text-gray-300 hover:text-white'
-                                : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'
+                                ? 'hover:bg-[#1a2d4a] text-gray-300 hover:text-white'
+                                : 'hover:bg-[#e6d5c3] text-gray-600 hover:text-gray-900'
                                 }`}
                         >
                             {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -112,8 +112,8 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             {isMenuOpen && (
                 <motion.div
                     className={`md:hidden border-t transition-colors duration-300 ${darkMode
-                        ? 'bg-gray-900 border-gray-700'
-                        : 'bg-white border-gray-200'
+                        ? 'bg-[#0a1628] border-[#1a2d4a]'
+                        : 'bg-[#fdf8f3] border-[#e6d5c3]'
                         }`}
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -125,8 +125,8 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                                 to={item.path}
                                 onClick={() => setIsMenuOpen(false)}
                                 className={({ isActive }) => `block w-full text-left px-4 py-2 rounded-lg font-medium transition-colors ${isActive
-                                    ? (darkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-900')
-                                    : (darkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-600 hover:bg-gray-100')
+                                    ? (darkMode ? 'bg-[#1a2d4a] text-white' : 'bg-[#e6d5c3] text-gray-900')
+                                    : (darkMode ? 'text-gray-300 hover:bg-[#1a2d4a]' : 'text-gray-600 hover:bg-[#ede0d4]')
                                     }`}
                             >
                                 {item.name}

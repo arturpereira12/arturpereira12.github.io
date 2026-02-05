@@ -26,7 +26,7 @@ const Home = ({ darkMode }) => {
                                 <h1 className={`text-5xl md:text-6xl font-bold mb-2 transition-colors ${
                                     darkMode ? 'text-white' : 'text-gray-900'
                                 }`}>
-                                    Rafael Torres
+                                    Artur Pereira
                                 </h1>
                                 <p className={`text-xl md:text-2xl font-light ${
                                     darkMode ? 'text-gray-400' : 'text-gray-600'
@@ -62,8 +62,8 @@ const Home = ({ darkMode }) => {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className={`p-6 rounded-lg border ${
                                 darkMode
-                                    ? 'bg-[#1a1a1a] border-[#2a2a2a]'
-                                    : 'bg-gray-50 border-gray-200'
+                                    ? 'bg-[#0d1a2d] border-[#1a2d4a]'
+                                    : 'bg-[#f5ebe0] border-[#e6d5c3]'
                             }`}
                         >
                             <p className={`text-xs font-mono uppercase tracking-wider mb-3 ${
@@ -92,7 +92,7 @@ const Home = ({ darkMode }) => {
                                     <p className={`text-xs font-mono mt-1 ${
                                         darkMode ? 'text-gray-500' : 'text-gray-500'
                                     }`}>
-                                        2024 - Present
+                                        Jun 2024 - Dec 2027 • GPA: 9/10
                                     </p>
                                 </div>
                             </div>
@@ -115,8 +115,8 @@ const Home = ({ darkMode }) => {
                                         key={area}
                                         className={`p-4 rounded-lg border transition-all duration-300 hover:shadow-lg ${
                                             darkMode
-                                                ? 'bg-[#1a1a1a] border-[#2a2a2a] hover:border-[#3a3a3a]'
-                                                : 'bg-white border-gray-200 hover:border-gray-300'
+                                                ? 'bg-[#0d1a2d] border-[#1a2d4a] hover:border-[#2a4a6a]'
+                                                : 'bg-[#f5ebe0] border-[#e6d5c3] hover:border-[#d5c4a1]'
                                         }`}
                                     >
                                         <span className={`text-xs font-mono ${
@@ -145,8 +145,8 @@ const Home = ({ darkMode }) => {
                                 to="/projects"
                                 className={`group flex items-center space-x-2 px-6 py-3 rounded-lg font-mono text-sm transition-all ${
                                     darkMode
-                                        ? 'bg-white text-black hover:bg-gray-200'
-                                        : 'bg-gray-900 text-white hover:bg-gray-800'
+                                        ? 'bg-blue-600 text-white hover:bg-blue-700'
+                                        : 'bg-[#0066cc] text-white hover:bg-[#0052a3]'
                                 }`}
                             >
                                 <span>View Projects</span>
@@ -156,8 +156,8 @@ const Home = ({ darkMode }) => {
                                 to="/contact"
                                 className={`px-6 py-3 rounded-lg font-mono text-sm border transition-all ${
                                     darkMode
-                                        ? 'border-gray-700 text-white hover:bg-gray-900'
-                                        : 'border-gray-300 text-gray-900 hover:bg-gray-50'
+                                        ? 'border-[#1a2d4a] text-white hover:bg-[#1a2d4a]'
+                                        : 'border-[#c4b393] text-gray-900 hover:bg-[#f5ebe0]'
                                 }`}
                             >
                                 Get In Touch
@@ -169,7 +169,7 @@ const Home = ({ darkMode }) => {
 
             {/* Data Sculpture Section */}
             <section className={`h-[600px] w-full relative overflow-hidden transition-colors duration-300 ${
-                darkMode ? 'bg-[#0a0a0a]' : 'bg-white'
+                darkMode ? 'bg-[#0a1628]' : 'bg-[#fdf8f3]'
             }`}>
                 <div className="absolute inset-0">
                     <Canvas camera={{ position: [0, 0, 8], fov: 60 }}>

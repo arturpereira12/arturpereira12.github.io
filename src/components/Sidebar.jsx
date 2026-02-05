@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, FileText, Instagram } from 'lucide-react'
+import { Github, Linkedin, Mail, FileText } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import FolderIcon from './FolderIcon'
@@ -11,7 +11,7 @@ const Sidebar = ({ darkMode }) => {
         { name: 'INTRO', path: '/' },
         { name: 'EXPERIENCE', path: '/experiences' },
         { name: 'PROJECTS', path: '/projects' },
-        { name: 'BOOKS', path: '/books' },
+        { name: 'AWARDS', path: '/awards' },
         { name: 'CONTACT', path: '/contact' },
     ]
 
@@ -23,7 +23,7 @@ const Sidebar = ({ darkMode }) => {
 
     return (
         <aside className={`w-80 sidebar-fixed border-r transition-colors duration-300 ${
-            darkMode ? 'bg-[#0a0a0a] border-gray-800' : 'bg-white border-gray-200'
+            darkMode ? 'bg-[#0a1628] border-[#1a2d4a]' : 'bg-[#fdf8f3] border-[#e6d5c3]'
         }`}>
             <div className="p-8 space-y-8">
                 {/* Profile */}
@@ -33,10 +33,10 @@ const Sidebar = ({ darkMode }) => {
                     transition={{ duration: 0.6 }}
                 >
                     <div className="flex items-center space-x-3 mb-6">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
                             <img
                                 src={`${import.meta.env.BASE_URL}eu.png`}
-                                alt="Rafael Torres"
+                                alt="Artur Pereira"
                                 className="w-full h-full rounded-full object-cover"
                                 style={{
                                     objectPosition: '90% center',
@@ -47,13 +47,13 @@ const Sidebar = ({ darkMode }) => {
                                     e.target.nextElementSibling.style.display = 'flex';
                                 }}
                             />
-                            <span className="text-white font-bold text-lg hidden">RT</span>
+                            <span className="text-white font-bold text-lg hidden">AP</span>
                         </div>
                         <div>
                             <h1 className={`text-lg font-bold transition-colors ${
                                 darkMode ? 'text-white' : 'text-gray-900'
                             }`}>
-                                Rafael Torres
+                                Artur Pereira
                             </h1>
                             <div className="flex items-center space-x-1">
                                 <span className={`text-xs font-mono ${
@@ -100,11 +100,11 @@ const Sidebar = ({ darkMode }) => {
                                 `flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-mono transition-all duration-300 ${
                                     isActive
                                         ? darkMode
-                                            ? 'bg-gray-800 text-white shadow-lg'
-                                            : 'bg-gray-100 text-gray-900 shadow-md'
+                                            ? 'bg-[#1a2d4a] text-white shadow-lg'
+                                            : 'bg-[#e6d5c3] text-gray-900 shadow-md'
                                         : darkMode
-                                        ? 'text-gray-400 hover:bg-gray-800 hover:text-white hover:translate-x-1'
-                                        : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 hover:translate-x-1'
+                                        ? 'text-gray-400 hover:bg-[#1a2d4a] hover:text-white hover:translate-x-1'
+                                        : 'text-gray-600 hover:bg-[#ede0d4] hover:text-gray-900 hover:translate-x-1'
                                 }`
                             }
                         >
@@ -166,7 +166,7 @@ const Sidebar = ({ darkMode }) => {
                     </p>
                     <div className="space-y-2">
                         <a
-                            href="mailto:rafaeltorresng@gmail.com"
+                            href="mailto:arturguedespereira@gmail.com"
                             className={`flex items-center space-x-2 text-sm transition-colors ${
                                 darkMode
                                     ? 'text-gray-400 hover:text-white'
@@ -202,7 +202,7 @@ const Sidebar = ({ darkMode }) => {
                     }}
                 >
                     <a
-                        href="https://github.com/rafaeltorresng"
+                        href="https://github.com/arturpereira12"
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`transition-colors ${
@@ -214,7 +214,7 @@ const Sidebar = ({ darkMode }) => {
                         <Github size={18} />
                     </a>
                     <a
-                        href="https://linkedin.com/in/rafaeltng"
+                        href="https://linkedin.com/in/arturpereira12"
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`transition-colors ${
@@ -224,18 +224,6 @@ const Sidebar = ({ darkMode }) => {
                         }`}
                     >
                         <Linkedin size={18} />
-                    </a>
-                    <a
-                        href="https://www.instagram.com/rafatorresg_"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`transition-colors ${
-                            darkMode
-                                ? 'text-gray-400 hover:text-white'
-                                : 'text-gray-600 hover:text-gray-900'
-                        }`}
-                    >
-                        <Instagram size={18} />
                     </a>
                 </motion.div>
             </div>

@@ -4,28 +4,25 @@ import { Github, ExternalLink, ArrowUpRight } from 'lucide-react'
 const Projects = ({ darkMode }) => {
     const projects = [
         {
-            title: 'Blonded AI',
-            description: 'An intelligent music recommendation system built using Spotify audio embeddings and PCA. Features a sophisticated feature extraction pipeline, similarity computation algorithms, and a personalized recommendation engine with Spotify integration.',
-            github: 'https://github.com/rafaeltorresng/Blonded-AI',
+            title: 'GuardAzul',
+            description: 'Full-stack coastal protection app developed at Porto Digital Hackathon. Built with React Native (Expo), FastAPI, Docker, and PostgreSQL. Integrates Google Vision and Gemini API for AI-powered environmental report validation and chatbot functionality.',
+            github: 'https://github.com/luigischmitt/GuardAzul',
+            image: 'Login(1).png',
             number: '01'
         },
         {
-            title: 'GuardAzul',
-            description: 'A mobile app designed to protect the coastal ecosystems of Paraíba, Brazil. This project integrates a React Native (Expo) mobile application with a Python (FastAPI) RESTful API and a PostgreSQL database. The platform leverages Google\'s AI (Gemini and Vision) to power an informative chatbot and to automatically validate environmental reports submitted by users.',
-            github: 'https://github.com/luigischmitt/GuardAzul',
+            title: 'Gestar',
+            description: 'Intelligent school communication platform developed at NewHack/OpenAI hackathon. Built with Next.js, TypeScript, and OpenAI API for smart parent-school interactions and automated communication workflows.',
+            github: 'https://github.com/arturpereira12/gestar',
+            image: 'logo_gestar_vertical_HD.png',
             number: '02'
         },
         {
             title: 'Brazilian Championship Simulator',
             description: 'A comprehensive football simulation platform that recreates the Brazilian Championship experience. Features intelligent match algorithms, real-time league standings, and dynamic team management with an intuitive web interface built on Java Spring Boot.',
             github: 'https://github.com/arturpereira12/poo_brasileirao',
+            image: 'brasileirao-adr.png',
             number: '03'
-        },
-        {
-            title: 'TARG (Time-series Analysis Report Generator)',
-            description: 'An advanced stock forecasting platform that predicts stock prices for the next 5 days using sophisticated LSTM time series models. Integrates real-time financial news through web scraping with sentiment analysis to enhance prediction accuracy and provide comprehensive market insights.',
-            github: 'https://github.com/Vitoreism/TARG',
-            number: '04'
         }
     ]
 
@@ -60,8 +57,8 @@ const Projects = ({ darkMode }) => {
                             whileHover={{ x: 4 }}
                             className={`elegant-card p-6 rounded-lg border transition-all duration-300 hover:shadow-xl group ${
                                 darkMode
-                                    ? 'bg-[#1a1a1a] border-[#2a2a2a] hover:border-[#3a3a3a]'
-                                    : 'bg-gray-50 border-gray-200 hover:border-gray-300'
+                                    ? 'bg-[#0d1a2d] border-[#1a2d4a] hover:border-[#2a4a6a]'
+                                    : 'bg-[#f5ebe0] border-[#e6d5c3] hover:border-[#d5c4a1]'
                             }`}
                         >
                             <div className="flex items-start gap-6">
@@ -86,8 +83,8 @@ const Projects = ({ darkMode }) => {
                                             rel="noopener noreferrer"
                                             className={`flex-shrink-0 p-2 rounded-lg transition-all duration-300 ${
                                                 darkMode
-                                                    ? 'text-gray-400 hover:text-white hover:bg-gray-800'
-                                                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                                                    ? 'text-gray-400 hover:text-white hover:bg-[#1a2d4a]'
+                                                    : 'text-gray-600 hover:text-gray-900 hover:bg-[#ede0d4]'
                                             }`}
                                         >
                                             <ArrowUpRight size={20} />
@@ -99,6 +96,19 @@ const Projects = ({ darkMode }) => {
                                     }`}>
                                         {project.description}
                                     </p>
+
+                                    {/* Project Image */}
+                                    {project.image && (
+                                        <div className={`mb-4 rounded-lg overflow-hidden border ${
+                                            darkMode ? 'border-[#1a2d4a]' : 'border-[#e6d5c3]'
+                                        }`}>
+                                            <img
+                                                src={`${import.meta.env.BASE_URL}${project.image}`}
+                                                alt={project.title}
+                                                className="w-full h-40 object-cover"
+                                            />
+                                        </div>
+                                    )}
 
                                     {/* Links */}
                                     <div className="flex items-center gap-4">

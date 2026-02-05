@@ -84,8 +84,8 @@ const Books = ({ darkMode }) => {
                                 whileHover={{ scale: 1.01 }}
                                 className={`elegant-card p-6 rounded-lg border transition-all duration-300 hover:shadow-xl group ${
                                     darkMode
-                                        ? 'bg-[#1a1a1a] border-[#2a2a2a] hover:border-[#3a3a3a]'
-                                        : 'bg-gray-50 border-gray-200 hover:border-gray-300'
+                                        ? 'bg-[#0d1a2d] border-[#1a2d4a] hover:border-[#2a4a6a]'
+                                        : 'bg-[#f5ebe0] border-[#e6d5c3] hover:border-[#d5c4a1]'
                                 }`}
                             >
                                 <div className="flex flex-col md:flex-row gap-6">

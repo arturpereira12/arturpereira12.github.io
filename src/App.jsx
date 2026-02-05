@@ -6,7 +6,7 @@ import ScrollToTopButton from './components/ScrollToTopButton'
 import Home from './pages/Home'
 import Experiences from './pages/Experiences'
 import Projects from './pages/Projects'
-import Books from './pages/Books'
+import Awards from './pages/Awards'
 import Contact from './pages/Contact'
 import ScrollToTop from './components/ScrollToTop'
 import { Moon, Sun } from 'lucide-react'
@@ -39,7 +39,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <div className={`min-h-screen transition-colors duration-300 ${
-        darkMode ? 'bg-[#0a0a0a] text-white' : 'bg-white text-gray-900'
+        darkMode ? 'bg-[#0a1628] text-white' : 'bg-[#fdf8f3] text-gray-900'
       }`}>
         <div className="flex">
           {/* Desktop Sidebar */}
@@ -57,8 +57,8 @@ function App() {
               onClick={toggleDarkMode}
               className={`fixed top-6 right-6 z-50 p-3 rounded-full transition-colors ${
                 darkMode
-                  ? 'bg-gray-800 hover:bg-gray-700 text-white'
-                  : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
+                  ? 'bg-[#1a2d4a] hover:bg-[#243a5e] text-white'
+                  : 'bg-[#e6d5c3] hover:bg-[#d5c4a1] text-gray-900'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -70,7 +70,7 @@ function App() {
               <Route path="/" element={<Home darkMode={darkMode} />} />
               <Route path="/experiences" element={<Experiences darkMode={darkMode} />} />
               <Route path="/projects" element={<Projects darkMode={darkMode} />} />
-              <Route path="/books" element={<Books darkMode={darkMode} />} />
+              <Route path="/awards" element={<Awards darkMode={darkMode} />} />
               <Route path="/contact" element={<Contact darkMode={darkMode} />} />
             </Routes>
 
