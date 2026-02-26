@@ -132,7 +132,7 @@ const Contact = ({ darkMode }) => {
                             LinkedIn
                         </a>
                         <a
-                            href={`${import.meta.env.BASE_URL}Pereira-Artur-CV.pdf`}
+                            href={`${import.meta.env.BASE_URL}Pereira-Artur-CV-2026-02.pdf`}
                             download
                             className={`col-span-2 px-4 py-3 rounded-lg text-sm font-mono text-center transition-all ${
                                 darkMode

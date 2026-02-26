@@ -177,7 +177,7 @@ const Sidebar = ({ darkMode }) => {
                             <span className="font-mono text-xs">Email</span>
                         </a>
                         <a
-                            href={`${import.meta.env.BASE_URL}Pereira-Artur-CV.pdf`}
+                            href={`${import.meta.env.BASE_URL}Pereira-Artur-CV-2026-02.pdf`}
                             download
                             className={`flex items-center space-x-2 text-sm transition-colors ${
                                 darkMode
