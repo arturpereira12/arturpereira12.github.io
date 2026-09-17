@@ -1,113 +1,203 @@
-import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Sidebar from './components/Sidebar'
-import MobileNav from './components/MobileNav'
-import ScrollToTopButton from './components/ScrollToTopButton'
-import Home from './pages/Home'
-import Experiences from './pages/Experiences'
-import Projects from './pages/Projects'
-import Awards from './pages/Awards'
-import Contact from './pages/Contact'
-import ScrollToTop from './components/ScrollToTop'
-import { Moon, Sun, Menu, X } from 'lucide-react'
-import { motion } from 'framer-motion'
-
-function App() {
-  const [darkMode, setDarkMode] = useState(true) // Start in dark mode
-  const [sidebarVisible, setSidebarVisible] = useState(true)
-
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, Sun, Moon, ArrowUpRight, Download } from "lucide-react";
+import Home from "./pages/Home";
+const links = [
+  ["sobre", "Sobre"],
+  ["trajetoria", "Experiência"],
+  ["projetos", "Projetos"],
+  ["conquistas", "Conquistas"],
+  ["contato", "Contato"],
+];
+const legacy = {
+  "/experiences": "trajetoria",
+  "/projects": "projetos",
+  "/awards": "conquistas",
+  "/contact": "contato",
+};
+export default function App() {
+  const navigation = useRef(null),
+    menuButton = useRef(null);
+  const [menu, setMenu] = useState(false);
+  const [active, setActive] = useState("sobre");
+  const [cadence, setCadence] = useState(null);
+  const previousSection = useRef("sobre");
   useEffect(() => {
-    const savedMode = localStorage.getItem('darkMode')
-    const isDark = savedMode === null ? true : savedMode === 'true'
-    setDarkMode(isDark)
-    document.documentElement.classList.toggle('dark', isDark)
-    document.documentElement.classList.toggle('light', !isDark)
-    document.body.classList.toggle('dark', isDark)
-    document.body.classList.toggle('light', !isDark)
-  }, [])
-
-  const toggleDarkMode = () => {
-    const newDarkMode = !darkMode
-    setDarkMode(newDarkMode)
-    localStorage.setItem('darkMode', newDarkMode.toString())
-    document.documentElement.classList.toggle('dark', newDarkMode)
-    document.documentElement.classList.toggle('light', !newDarkMode)
-    document.body.classList.toggle('dark', newDarkMode)
-    document.body.classList.toggle('light', !newDarkMode)
-  }
-
-  const toggleSidebar = () => {
-    setSidebarVisible(!sidebarVisible)
-  }
-
+    if (previousSection.current !== active) {
+      previousSection.current = active;
+      setCadence(active);
+    }
+  }, [active]);
+  const [dark, setDark] = useState(
+    () => localStorage.getItem("portfolio-theme") !== "light",
+  );
+  useEffect(() => {
+    if (menu) navigation.current?.querySelector("a")?.focus();
+  }, [menu]);
+  useEffect(() => {
+    document.documentElement.dataset.theme = dark ? "dark" : "light";
+    localStorage.setItem("portfolio-theme", dark ? "dark" : "light");
+  }, [dark]);
+  useEffect(() => {
+    if (legacy[location.pathname])
+      history.replaceState(null, "", `/#${legacy[location.pathname]}`);
+    let frame;
+    const sections = links.map(([id]) => document.getElementById(id));
+    const update = () => {
+      frame = null;
+      let current = "sobre";
+      for (const section of sections)
+        if (section.getBoundingClientRect().top <= innerHeight * 0.38)
+          current = section.id;
+      setActive(current);
+      document.documentElement.dataset.section = current;
+      document.querySelector('meta[name="theme-color"]').content =
+        getComputedStyle(document.documentElement)
+          .getPropertyValue("--bg")
+          .trim();
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    const followHash = () => {
+      const target = document.getElementById(location.hash.slice(1));
+      if (target) {
+        target.classList.add("is-revealed");
+        target.scrollIntoView({
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+            .matches
+            ? "instant"
+            : "smooth",
+        });
+      }
+      setMenu(false);
+    };
+    const initial = requestAnimationFrame(() => {
+      if (location.hash) followHash();
+      update();
+    });
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    window.addEventListener("hashchange", followHash);
+    return () => {
+      cancelAnimationFrame(frame);
+      cancelAnimationFrame(initial);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      window.removeEventListener("hashchange", followHash);
+    };
+  }, []);
+  useEffect(() => {
+    const escape = (e) => {
+      if (e.key === "Escape" && menu) {
+        setMenu(false);
+        menuButton.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", escape);
+    return () => window.removeEventListener("keydown", escape);
+  }, [menu]);
   return (
-    <Router>
-      <ScrollToTop />
-      <div className={`min-h-screen transition-colors duration-300 ${
-        darkMode ? 'bg-[#0a1628] text-white' : 'bg-[#fdf8f3] text-gray-900'
-      }`}>
-        <div className="flex">
-          {/* Desktop Sidebar */}
-          <motion.div 
-            className="hidden lg:block fixed top-0 left-0 h-full z-40"
-            initial={{ x: 0 }}
-            animate={{ x: sidebarVisible ? 0 : -320 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+    <>
+      <a className="skip-link" href="#main">
+        Pular para o conteúdo
+      </a>
+      <header className="site-header">
+        <a className="brand" href="#inicio" aria-label="Artur Pereira, início">
+          <span className="brand-mark">ap.</span>
+        </a>
+        <nav
+          ref={navigation}
+          id="navigation"
+          aria-label="Navegação principal"
+          className={menu ? "navigation open" : "navigation"}
+        >
+          {links.map(([id, name]) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className={
+                active === id
+                  ? `active ${cadence === id ? "nav-playing" : ""}`
+                  : ""
+              }
+              aria-current={active === id ? "location" : undefined}
+              onClick={() => {
+                setMenu(false);
+                if (menu) menuButton.current?.focus();
+                document.getElementById(id)?.classList.add("is-revealed");
+              }}
+            >
+              <span className="nav-label">{name}</span>
+              {active === id && cadence === id && (
+                <span className="nav-notes" aria-hidden="true">
+                  {[0, 1, 2].map((note) => (
+                    <span key={note} style={{ "--note-order": note }}>
+                      ♪
+                    </span>
+                  ))}
+                </span>
+              )}
+            </a>
+          ))}
+        </nav>
+        <div className="header-actions">
+          <button
+            className="icon-button"
+            onClick={() => setDark(!dark)}
+            aria-label={dark ? "Ativar tema claro" : "Ativar tema escuro"}
           >
-            <Sidebar darkMode={darkMode} />
-          </motion.div>
-
-          {/* Mobile Navigation */}
-          <MobileNav darkMode={darkMode} />
-
-          {/* Main Content */}
-          <main className={`flex-1 transition-all duration-300 ${sidebarVisible ? 'lg:ml-80' : 'lg:ml-0'}`}>
-            {/* Controls - Fixed top right */}
-            <div className="fixed top-6 right-6 z-50 flex items-center gap-3">
-              {/* Sidebar Toggle - Desktop only */}
-              <motion.button
-                onClick={toggleSidebar}
-                className={`hidden lg:flex p-3 rounded-full transition-colors ${
-                  darkMode
-                    ? 'bg-[#1a2d4a] hover:bg-[#243a5e] text-white'
-                    : 'bg-[#e6d5c3] hover:bg-[#d5c4a1] text-gray-900'
-                }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {sidebarVisible ? <X size={18} /> : <Menu size={18} />}
-              </motion.button>
-
-              {/* Theme Toggle */}
-              <motion.button
-                onClick={toggleDarkMode}
-                className={`p-3 rounded-full transition-colors ${
-                  darkMode
-                    ? 'bg-[#1a2d4a] hover:bg-[#243a5e] text-white'
-                    : 'bg-[#e6d5c3] hover:bg-[#d5c4a1] text-gray-900'
-                }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {darkMode ? <Sun size={18} /> : <Moon size={18} />}
-              </motion.button>
-            </div>
-
-            <Routes>
-              <Route path="/" element={<Home darkMode={darkMode} />} />
-              <Route path="/experiences" element={<Experiences darkMode={darkMode} />} />
-              <Route path="/projects" element={<Projects darkMode={darkMode} />} />
-              <Route path="/awards" element={<Awards darkMode={darkMode} />} />
-              <Route path="/contact" element={<Contact darkMode={darkMode} />} />
-            </Routes>
-
-            {/* Scroll to Top Button */}
-            <ScrollToTopButton darkMode={darkMode} />
-          </main>
+            {dark ? (
+              <Sun size={19} aria-hidden="true" />
+            ) : (
+              <Moon size={19} aria-hidden="true" />
+            )}
+          </button>
+          <button
+            ref={menuButton}
+            className="icon-button menu-toggle"
+            aria-expanded={menu}
+            aria-controls="navigation"
+            aria-label={menu ? "Fechar menu" : "Abrir menu"}
+            onClick={() => setMenu(!menu)}
+          >
+            {menu ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+          </button>
         </div>
-      </div>
-    </Router>
-  )
+      </header>
+      <main id="main" tabIndex={-1}>
+        <Home />
+      </main>
+      <footer className="site-footer">
+        <div>
+          <a className="brand-mark" href="#inicio">
+            ap.
+          </a>
+          <p>Software, dados e novas possibilidades.</p>
+        </div>
+        <div className="footer-links">
+          <a
+            href="https://github.com/arturpereira12"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub <ArrowUpRight size={15} aria-hidden="true" />
+          </a>
+          <a
+            href="https://linkedin.com/in/arturpereira12"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn <ArrowUpRight size={15} aria-hidden="true" />
+          </a>
+          <a
+            href={`${import.meta.env.BASE_URL}Artur-Pereira-CV-PTBR.pdf`}
+            download
+          >
+            Currículo <Download size={15} aria-hidden="true" />
+          </a>
+        </div>
+        <p className="copyright">© {new Date().getFullYear()} Artur Pereira</p>
+      </footer>
+    </>
+  );
 }
-
-export default App

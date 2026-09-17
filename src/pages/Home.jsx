@@ -1,181 +1,162 @@
-import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
-import PianoAnimation from '../components/3d/PianoAnimation'
-
-const Home = ({ darkMode }) => {
-    return (
-        <div>
-            {/* Hero Section */}
-            <div className="min-h-screen flex items-center justify-center px-8 py-16">
-                <div className="max-w-4xl w-full">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="space-y-12"
-                    >
-                        {/* Hero Text */}
-                        <div className="space-y-6">
-                            <div>
-                                <p className={`text-sm font-mono uppercase tracking-wider mb-4 ${
-                                    darkMode ? 'text-gray-500' : 'text-gray-500'
-                                }`}>
-                                </p>
-                                <h1 className={`text-5xl md:text-6xl font-bold mb-2 transition-colors ${
-                                    darkMode ? 'text-white' : 'text-gray-900'
-                                }`}>
-                                    Artur Pereira
-                                </h1>
-                                <p className={`text-xl md:text-2xl font-light ${
-                                    darkMode ? 'text-gray-400' : 'text-gray-600'
-                                }`}>
-                                    Computer Science Student
-                                </p>
-                            </div>
-                            
-                            <div className={`space-y-4 text-base md:text-lg max-w-2xl ${
-                                darkMode ? 'text-gray-400' : 'text-gray-600'
-                            }`}>
-                                <p className="leading-relaxed">
-                                    Passionate about exploring the realms of{' '}
-                                    <span className={darkMode ? 'text-white' : 'text-gray-900'}>
-                                        Software Engineering
-                                    </span>{' '}
-                                    and{' '}
-                                    <span className={darkMode ? 'text-white' : 'text-gray-900'}>
-                                        Machine Learning
-                                    </span>.
-                                </p>
-                                
-                                <p className="leading-relaxed">
-                                    Tech has always been more than just a major for me—it's my toolkit for solving problems. Currently studying Computer Science at UFPB, I focus on bridging the gap between academic theory and practical development. From Data Science to AI and Software Engineering, I am committed to continuous evolution!
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Education */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className={`p-6 rounded-lg border ${
-                                darkMode
-                                    ? 'bg-[#0d1a2d] border-[#1a2d4a]'
-                                    : 'bg-[#f5ebe0] border-[#e6d5c3]'
-                            }`}
-                        >
-                            <p className={`text-xs font-mono uppercase tracking-wider mb-3 ${
-                                darkMode ? 'text-gray-500' : 'text-gray-500'
-                            }`}>
-                                Education
-                            </p>
-                            <div className="flex items-start space-x-4">
-                                <img
-                                    src={`${import.meta.env.BASE_URL}ufpb-logo.png`}
-                                    alt="UFPB"
-                                    className="w-12 h-12 object-contain rounded"
-                                    onError={(e) => e.target.style.display = 'none'}
-                                />
-                                <div>
-                                    <h3 className={`font-semibold mb-1 ${
-                                        darkMode ? 'text-white' : 'text-gray-900'
-                                    }`}>
-                                        Bachelor of Computer Science
-                                    </h3>
-                                    <p className={`text-sm ${
-                                        darkMode ? 'text-gray-400' : 'text-gray-600'
-                                    }`}>
-                                        Federal University of Paraíba (UFPB)
-                                    </p>
-                                    <p className={`text-xs font-mono mt-1 ${
-                                        darkMode ? 'text-gray-500' : 'text-gray-500'
-                                    }`}>
-                                        Jun 2024 - Dec 2027 • GPA: 9/10
-                                    </p>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* Areas of Focus */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.3 }}
-                        >
-                            <p className={`text-xs font-mono uppercase tracking-wider mb-4 ${
-                                darkMode ? 'text-gray-500' : 'text-gray-500'
-                            }`}>
-                                Areas of Focus
-                            </p>
-                            <div className="grid md:grid-cols-3 gap-4">
-                                {['Software Development', 'Data Intelligence', 'Computer Vision'].map((area, index) => (
-                                    <div
-                                        key={area}
-                                        className={`p-4 rounded-lg border transition-all duration-300 hover:shadow-lg ${
-                                            darkMode
-                                                ? 'bg-[#0d1a2d] border-[#1a2d4a] hover:border-[#2a4a6a]'
-                                                : 'bg-[#f5ebe0] border-[#e6d5c3] hover:border-[#d5c4a1]'
-                                        }`}
-                                    >
-                                        <span className={`text-xs font-mono ${
-                                            darkMode ? 'text-gray-500' : 'text-gray-500'
-                                        }`}>
-                                            0{index + 1}
-                                        </span>
-                                        <h3 className={`mt-2 font-semibold ${
-                                            darkMode ? 'text-white' : 'text-gray-900'
-                                        }`}>
-                                            {area}
-                                        </h3>
-                                    </div>
-                                ))}
-                            </div>
-                        </motion.div>
-
-                        {/* CTA */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="flex flex-wrap gap-4"
-                        >
-                            <Link
-                                to="/projects"
-                                className={`group flex items-center space-x-2 px-6 py-3 rounded-lg font-mono text-sm transition-all ${
-                                    darkMode
-                                        ? 'bg-blue-600 text-white hover:bg-blue-700'
-                                        : 'bg-[#0066cc] text-white hover:bg-[#0052a3]'
-                                }`}
-                            >
-                                <span>View Projects</span>
-                                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                            </Link>
-                            <Link
-                                to="/contact"
-                                className={`px-6 py-3 rounded-lg font-mono text-sm border transition-all ${
-                                    darkMode
-                                        ? 'border-[#1a2d4a] text-white hover:bg-[#1a2d4a]'
-                                        : 'border-[#c4b393] text-gray-900 hover:bg-[#f5ebe0]'
-                                }`}
-                            >
-                                Get In Touch
-                            </Link>
-                        </motion.div>
-                    </motion.div>
-                </div>
-            </div>
-
-            {/* Piano Animation Section */}
-            <section className={`h-[200px] w-full relative overflow-hidden transition-colors duration-300 ${
-                darkMode ? 'bg-[#0a1628]' : 'bg-[#fdf8f3]'
-            }`}>
-                <div className="absolute inset-0">
-                    <PianoAnimation darkMode={darkMode} />
-                </div>
-            </section>
+import { ArrowUpRight } from "lucide-react";
+import Piano from "../components/Piano";
+import Awards from "./Awards";
+import Contact from "./Contact";
+import Experiences from "./Experiences";
+import { projects } from "../data";
+import PianoFinale, { usePianoReveal } from "../components/PianoScroll";
+export default function Home() {
+  usePianoReveal();
+  return (
+    <div className="home-composition">
+      <section className="piano-hero page" id="inicio">
+        <div className="hero-overline">
+          <span>Software, dados & IA</span>
+          <span>João Pessoa, Brasil</span>
         </div>
-    )
+        <h1>
+          Artur Pereira<span className="name-period">.</span>
+        </h1>
+        <div className="hero-introduction">
+          <p>
+            Ciência da Computação - UFPB.
+            <br />
+            Automação no{" "}
+            <a
+              className="piano-name-link"
+              href="https://www.btgpactual.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              BTG Pactual
+              <span className="link-keyboard" aria-hidden="true">
+                {Array.from({ length: 7 }, (_, i) => (
+                  <span key={i} style={{ "--note-order": i }} />
+                ))}
+              </span>
+            </a>
+            .
+            <br />
+            Pesquisa no{" "}
+            <a
+              className="piano-name-link"
+              href="https://aria.ci.ufpb.br/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              ARIA
+              <span className="link-keyboard" aria-hidden="true">
+                {Array.from({ length: 7 }, (_, i) => (
+                  <span key={i} style={{ "--note-order": i }} />
+                ))}
+              </span>
+            </a>
+            .
+          </p>
+          <p>
+            Código com intenção.
+            <br />
+            Espaço para a próxima nota.
+          </p>
+        </div>
+        <Piano />
+        <a href="#trajetoria" className="scroll-cue">
+          Explore minha trajetória <span aria-hidden="true">↓</span>
+        </a>
+      </section>
+      <section className="page about-section" id="sobre">
+        <div>
+          <p className="section-kicker">Sobre mim</p>
+          <h2>
+            Curiosidade.
+            <br />
+            Prática.
+            <br />
+            Repertório.
+          </h2>
+        </div>
+        <div>
+          <p className="large-copy">
+            Entre visão computacional, dados e automação, transformo o que
+            aprendo em ferramentas para problemas reais.
+          </p>
+          <p>
+            Minha trajetória conecta pesquisa no ARIA, análise de dados aplicada
+            a políticas públicas e desenvolvimento de soluções em produção. Este
+            espaço reúne as experiências e os projetos que fazem parte desse
+            caminho.
+          </p>
+          <div className="education">
+            <img
+              width="44"
+              height="55"
+              loading="lazy"
+              src={`${import.meta.env.BASE_URL}ufpb-logo.png`}
+              alt=""
+            />
+            <div>
+              <h3>Ciência da Computação</h3>
+              <p>Universidade Federal da Paraíba</p>
+              <span>jun 2024 — dez 2027 (previsão) · GPA 8,98/10</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <Experiences embedded />
+      <section className="page selected-section" id="projetos">
+        <div className="section-heading">
+          <div>
+            <p className="section-kicker">Seleção de projetos</p>
+            <h2>Em composição.</h2>
+          </div>
+        </div>
+        <div className="project-preview-grid">
+          {projects.map((p) => (
+            <a
+              className="project-preview piano-project-link"
+              href={p.github}
+              target="_blank"
+              rel="noreferrer"
+              key={p.title}
+            >
+              <div className={`project-visual ${p.className}`}>
+                <img
+                  width="500"
+                  height="350"
+                  src={`${import.meta.env.BASE_URL}${p.image}`}
+                  alt={`Prévia do projeto ${p.title}`}
+                  loading="lazy"
+                />
+              </div>
+              <div className="project-preview-title">
+                <div>
+                  <h3>
+                    <span className="piano-name-link">
+                      {p.title}
+                      <span className="link-keyboard" aria-hidden="true">
+                        {Array.from({ length: 7 }, (_, i) => (
+                          <span key={i} style={{ "--note-order": i }} />
+                        ))}
+                      </span>
+                    </span>
+                  </h3>
+                  <p>{p.category}</p>
+                </div>
+                <ArrowUpRight aria-hidden="true" />
+              </div>
+              <p className="preview-description">{p.description}</p>
+              <div className="tags">
+                {p.tags.map((t) => (
+                  <span key={t}>{t}</span>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+      <Awards embedded />
+      <Contact embedded />
+      <PianoFinale />
+    </div>
+  );
 }
-
-export default Home

@@ -1,172 +1,96 @@
-import { motion } from 'framer-motion'
-import { Mail, MapPin, Send } from 'lucide-react'
-
-const Contact = ({ darkMode }) => {
-    const contactInfo = [
-        {
-            icon: Mail,
-            label: 'Email',
-            value: 'arturguedespereira@gmail.com',
-            link: 'mailto:arturguedespereira@gmail.com'
-        },
-        {
-            icon: MapPin,
-            label: 'Location',
-            value: 'João Pessoa, PB, Brazil',
-            link: null
-        }
-    ]
-
-    return (
-        <div className="min-h-screen flex items-center justify-center px-8 py-16">
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="max-w-2xl w-full"
-            >
-                <div className="mb-12">
-                    <h1 className={`text-4xl font-bold mb-4 transition-colors ${
-                        darkMode ? 'text-white' : 'text-gray-900'
-                    }`}>
-                        Get In Touch
-                    </h1>
-                    <p className={`text-lg ${
-                        darkMode ? 'text-gray-400' : 'text-gray-600'
-                    }`}>
-                        If you have any questions or would you like to discuss something specific with me, just get in touch!
-                    </p>
-                </div>
-
-                {/* Contact Info Cards */}
-                <div className="space-y-4 mb-12">
-                    {contactInfo.map((info, index) => (
-                        <motion.div
-                            key={info.label}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className={`p-6 rounded-lg border transition-all duration-300 ${
-                                darkMode
-                                    ? 'bg-[#0d1a2d] border-[#1a2d4a] hover:border-[#2a4a6a]'
-                                    : 'bg-[#f5ebe0] border-[#e6d5c3] hover:border-[#d5c4a1]'
-                            }`}
-                        >
-                            <div className="flex items-center gap-4">
-                                <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-                                    darkMode ? 'bg-[#1a2d4a]' : 'bg-[#e6d5c3]'
-                                }`}>
-                                    <info.icon size={20} className={
-                                        darkMode ? 'text-gray-300' : 'text-gray-700'
-                                    } />
-                                </div>
-                                <div className="flex-1">
-                                    <p className={`text-xs font-mono uppercase tracking-wider mb-1 ${
-                                        darkMode ? 'text-gray-500' : 'text-gray-500'
-                                    }`}>
-                                        {info.label}
-                                    </p>
-                                    {info.link ? (
-                                        <a
-                                            href={info.link}
-                                            className={`font-medium transition-colors ${
-                                                darkMode
-                                                    ? 'text-white hover:text-gray-300'
-                                                    : 'text-gray-900 hover:text-gray-700'
-                                            }`}
-                                        >
-                                            {info.value}
-                                        </a>
-                                    ) : (
-                                        <p className={`font-medium ${
-                                            darkMode ? 'text-white' : 'text-gray-900'
-                                        }`}>
-                                            {info.value}
-                                        </p>
-                                    )}
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-
-                {/* Quick Links */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    className={`p-6 rounded-lg border ${
-                        darkMode
-                            ? 'bg-[#0d1a2d] border-[#1a2d4a]'
-                            : 'bg-[#f5ebe0] border-[#e6d5c3]'
-                    }`}
-                >
-                    <p className={`text-xs font-mono uppercase tracking-wider mb-4 ${
-                        darkMode ? 'text-gray-500' : 'text-gray-500'
-                    }`}>
-                        Quick Links
-                    </p>
-                    <div className="grid grid-cols-2 gap-3">
-                        <a
-                            href="https://github.com/arturpereira12"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`px-4 py-3 rounded-lg text-sm font-mono text-center transition-all ${
-                                darkMode
-                                    ? 'bg-[#1a2d4a] text-white hover:bg-[#243a5e]'
-                                    : 'bg-[#ede0d4] text-gray-900 hover:bg-[#e6d5c3] border border-[#d5c4a1]'
-                            }`}
-                        >
-                            GitHub
-                        </a>
-                        <a
-                            href="https://linkedin.com/in/arturpereira12"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`px-4 py-3 rounded-lg text-sm font-mono text-center transition-all ${
-                                darkMode
-                                    ? 'bg-[#1a2d4a] text-white hover:bg-[#243a5e]'
-                                    : 'bg-[#ede0d4] text-gray-900 hover:bg-[#e6d5c3] border border-[#d5c4a1]'
-                            }`}
-                        >
-                            LinkedIn
-                        </a>
-                        <a
-                            href={`${import.meta.env.BASE_URL}Pereira-Artur-CV-2026-02.pdf`}
-                            download
-                            className={`col-span-2 px-4 py-3 rounded-lg text-sm font-mono text-center transition-all ${
-                                darkMode
-                                    ? 'bg-[#1a2d4a] text-white hover:bg-[#243a5e]'
-                                    : 'bg-[#ede0d4] text-gray-900 hover:bg-[#e6d5c3] border border-[#d5c4a1]'
-                            }`}
-                        >
-                            Resume
-                        </a>
-                    </div>
-                </motion.div>
-
-                {/* CTA */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                    className="mt-8"
-                >
-                    <a
-                        href="mailto:arturguedespereira@gmail.com"
-                        className={`group flex items-center justify-center gap-2 w-full px-6 py-4 rounded-lg font-mono text-sm transition-all ${
-                            darkMode
-                                ? 'bg-blue-600 text-white hover:bg-blue-700'
-                                : 'bg-[#0066cc] text-white hover:bg-[#0052a3]'
-                        }`}
-                    >
-                        <Send size={16} />
-                        <span>Send me an email</span>
-                    </a>
-                </motion.div>
-            </motion.div>
-        </div>
-    )
+import { ArrowUpRight, Mail, Download } from "lucide-react";
+function ContactPiano() {
+  return (
+    <span className="contact-piano" aria-hidden="true">
+      <svg viewBox="0 0 140 140" focusable="false">
+        <ellipse className="contact-piano-shadow" cx="73" cy="125" rx="49" ry="9" fill="#000" opacity=".22" />
+        <g className="contact-piano-instrument">
+          <path d="M25 35 53 17 119 34 92 53Z" fill="#52545a" />
+          <path d="M25 35 53 49 53 119 25 99Z" fill="#282a30" />
+          <path d="M53 49 119 34 119 104 53 119Z" fill="#17181d" />
+          <path d="M59 54 113 42 113 77 59 89Z" fill="#303238" />
+          <path d="M62 58 110 47" stroke="#a8a29a" strokeWidth="1" />
+          <path d="M53 89 119 74 127 85 61 101Z" fill="#0c0d10" />
+          <g transform="matrix(1 -.23 .55 .8 56 89)">
+            {Array.from({ length: 10 }, (_, i) => (
+              <rect className="contact-piano-key" key={i} x={i * 6} y="0" width="5.5" height="12" rx=".5" fill="#eeebe4" style={{ "--key-order": i }} />
+            ))}
+            {[0, 1, 3, 4, 5, 7, 8].map((i) => (
+              <rect className="contact-piano-key" key={`black-${i}`} x={i * 6 + 4} y="0" width="3" height="7" rx=".4" fill="#101114" style={{ "--key-order": i + 1 }} />
+            ))}
+          </g>
+          <path d="M61 101 127 85 127 91 61 107Z" fill="#44464b" />
+          <path d="M57 112 62 111 62 126 57 127ZM112 101 117 100 117 115 112 117Z" fill="#121318" />
+          <path d="M79 116 83 115 86 120 82 121ZM88 114 92 113 95 118 91 119Z" fill="#b8a37c" />
+        </g>
+      </svg>
+    </span>
+  );
 }
-
-export default Contact
+export default function Contact({ embedded = false }) {
+  const Heading = embedded ? "h2" : "h1";
+  const OptionHeading = embedded ? "h3" : "h2";
+  return (
+    <section
+      id={embedded ? "contato" : undefined}
+      className="page inner-page contact-page"
+    >
+      <div className="page-heading">
+        <p>Uma conversa pode ser o começo</p>
+        <Heading>Vamos trocar ideias.</Heading>
+        <p>
+          Para conversar sobre projetos, pesquisa ou oportunidades, entre em
+          contato por e-mail ou pelo LinkedIn.
+        </p>
+      </div>
+      <a className="email-link contact-piano-link" href="mailto:arturguedespereira@gmail.com">
+        <Mail size={26} aria-hidden="true" />
+        <span>
+          arturguedespereira@
+          <wbr />
+          gmail.com
+        </span>
+        <ArrowUpRight aria-hidden="true" />
+        <ContactPiano />
+      </a>
+      <div className="contact-options">
+        <a
+          className="contact-piano-link"
+          href="https://linkedin.com/in/arturpereira12"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <OptionHeading>
+            LinkedIn <ArrowUpRight aria-hidden="true" />
+          </OptionHeading>
+          <p>Conexões e trajetória profissional</p>
+          <ContactPiano />
+        </a>
+        <a
+          className="contact-piano-link"
+          href="https://github.com/arturpereira12"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <OptionHeading>
+            GitHub <ArrowUpRight aria-hidden="true" />
+          </OptionHeading>
+          <p>Código e projetos em desenvolvimento</p>
+          <ContactPiano />
+        </a>
+        <a
+          className="contact-piano-link"
+          href={`${import.meta.env.BASE_URL}Artur-Pereira-CV-PTBR.pdf`}
+          download
+        >
+          <OptionHeading>
+            Currículo <Download aria-hidden="true" />
+          </OptionHeading>
+          <p>Minha experiência em PDF</p>
+          <ContactPiano />
+        </a>
+      </div>
+      <p className="location">João Pessoa, Paraíba · Brasil</p>
+    </section>
+  );
+}
