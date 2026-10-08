@@ -1380,7 +1380,7 @@ button:focus-visible {
   white-space: nowrap;
 }
 .identity-word:first-child .identity-expansion {
-  max-width: calc(var(--finale-expand) * 1.5em);
+  max-width: calc(var(--finale-expand) * 2.1em);
 }
 .identity-dot {
   color: var(--muted);
@@ -1801,12 +1801,29 @@ html {
 .contact-piano-link:hover .contact-piano,
 .contact-piano-link:focus-visible .contact-piano { opacity: 1; transform: translateY(8px) rotate(0deg) scale(1); }
 .contact-piano-instrument { transform-origin: 75px 100px; }
+.email-link.piano-reveal.is-revealed,
 .contact-options.piano-reveal.is-revealed {
   /* The miniature pianos extend above the links after their scroll reveal. */
   clip-path: none;
   animation: none;
   overflow: visible;
 }
+.email-link.contact-piano-link { z-index: 4; }
+.contact-page .page-heading { position: relative; z-index: 1; }
+.resume-picker { min-width: 0; }
+.resume-picker summary,
+.footer-resume-picker summary { list-style: none; cursor: pointer; }
+.resume-picker summary::-webkit-details-marker,
+.footer-resume-picker summary::-webkit-details-marker { display: none; }
+.resume-picker summary:focus-visible,
+.footer-resume-picker summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 7px; }
+.resume-options { display: grid; gap: 8px; margin-top: 17px; padding-top: 14px; border-top: 1px solid var(--line); }
+.resume-options a { display: flex; align-items: center; justify-content: space-between; padding: 7px 0; font-size: 14px; }
+.resume-options a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.footer-resume-picker { position: relative; }
+.footer-resume-picker summary { display: flex; align-items: center; gap: 5px; }
+.footer-resume-picker > div { position: absolute; right: 0; bottom: calc(100% + 10px); min-width: 130px; padding: 9px 12px; display: grid; gap: 7px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; z-index: 5; }
+.footer-resume-picker:not([open]) > div { display: none; }
 .contact-piano-key { transform-box: fill-box; transform-origin: top center; }
 .email-link > svg { flex-shrink: 0; }
 .email-link > svg:last-of-type { margin-left: auto; }

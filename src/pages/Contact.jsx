@@ -78,17 +78,23 @@ export default function Contact({ embedded = false }) {
           <p>Código e projetos em desenvolvimento</p>
           <ContactPiano />
         </a>
-        <a
-          className="contact-piano-link"
-          href={`${import.meta.env.BASE_URL}Artur-Pereira-CV-PTBR.pdf`}
-          download
-        >
-          <OptionHeading>
-            Currículo <Download aria-hidden="true" />
-          </OptionHeading>
-          <p>Minha experiência em PDF</p>
+        <details className="contact-piano-link resume-picker">
+          <summary>
+            <OptionHeading>
+              Currículo <Download aria-hidden="true" />
+            </OptionHeading>
+            <p>Escolha o idioma para baixar</p>
+          </summary>
+          <div className="resume-options">
+            <a href={`${import.meta.env.BASE_URL}Artur-Pereira-CV-PTBR.pdf`} download>
+              Português <Download size={16} aria-hidden="true" />
+            </a>
+            <a href={`${import.meta.env.BASE_URL}Artur-Pereira-CV-EN.pdf`} download>
+              English <Download size={16} aria-hidden="true" />
+            </a>
+          </div>
           <ContactPiano />
-        </a>
+        </details>
       </div>
       <p className="location">João Pessoa, Paraíba · Brasil</p>
     </section>

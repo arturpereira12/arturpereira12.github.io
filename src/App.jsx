@@ -189,12 +189,19 @@ export default function App() {
           >
             LinkedIn <ArrowUpRight size={15} aria-hidden="true" />
           </a>
-          <a
-            href={`${import.meta.env.BASE_URL}Artur-Pereira-CV-PTBR.pdf`}
-            download
-          >
-            Currículo <Download size={15} aria-hidden="true" />
-          </a>
+          <details className="footer-resume-picker">
+            <summary>
+              Currículo <Download size={15} aria-hidden="true" />
+            </summary>
+            <div>
+              <a href={`${import.meta.env.BASE_URL}Artur-Pereira-CV-PTBR.pdf`} download>
+                Português
+              </a>
+              <a href={`${import.meta.env.BASE_URL}Artur-Pereira-CV-EN.pdf`} download>
+                English
+              </a>
+            </div>
+          </details>
         </div>
         <p className="copyright">© {new Date().getFullYear()} Artur Pereira</p>
       </footer>

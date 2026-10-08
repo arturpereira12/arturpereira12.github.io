@@ -41,16 +41,23 @@ export default function PianoFinale() {
     const update = () => {
       frame = null;
       const rect = section.getBoundingClientRect();
+      const maxScroll = Math.max(
+        0,
+        document.documentElement.scrollHeight - window.innerHeight,
+      );
+      const reachedPageEnd = window.scrollY >= maxScroll - 2;
       const progress = preference.matches
         ? 1
-        : Math.max(
+        : reachedPageEnd
+          ? 1
+          : Math.max(
             0,
             Math.min(
               1,
               (window.innerHeight - rect.top) /
                 (window.innerHeight + rect.height * 0.15),
             ),
-          );
+            );
       section.style.setProperty("--finale-progress", progress);
       section.style.setProperty(
         "--finale-expand",
