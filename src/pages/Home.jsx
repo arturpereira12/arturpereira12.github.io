@@ -79,9 +79,13 @@ export default function Home() {
             </div>
           </div>
           <div className="education education-secondary">
-            <span className="education-monogram" aria-hidden="true">
-              UN
-            </span>
+            <img
+              width="44"
+              height="44"
+              loading="lazy"
+              src={`${import.meta.env.BASE_URL}unina-logo.png`}
+              alt=""
+            />
             <div>
               <h3>Estudante visitante · Data Science</h3>
               <p>Università degli Studi di Napoli Federico II (UNINA)</p>
@@ -94,8 +98,7 @@ export default function Home() {
       <section className="page selected-section" id="projetos">
         <div className="section-heading">
           <div>
-            <p className="section-kicker">Seleção de projetos</p>
-            <h2>Em composição.</h2>
+            <h2>Meus projetos</h2>
           </div>
         </div>
         <div className="project-preview-grid">

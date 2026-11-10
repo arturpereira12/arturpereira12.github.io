@@ -8,9 +8,6 @@ export default function Experiences({ embedded = false }) {
     >
       <div className={embedded ? "section-heading" : "page-heading"}>
         <div>
-          <p className="section-kicker">
-            Pesquisa, desenvolvimento e colaboração
-          </p>
           <Heading>Minha trajetória.</Heading>
         </div>
         {!embedded && (

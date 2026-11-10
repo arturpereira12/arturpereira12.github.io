@@ -2009,19 +2009,10 @@ html {
   margin-top: 18px;
   padding-top: 18px;
 }
-.education-monogram {
-  display: grid;
-  place-items: center;
+.education-secondary img {
   flex: 0 0 44px;
-  width: 44px;
   height: 44px;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  color: var(--ink) !important;
-  font-family: "Outfit", sans-serif;
-  font-size: 12px !important;
-  font-weight: 600;
-  letter-spacing: -0.5px;
+  filter: none;
 }
 
 /* Mail remains a direct link; copying is a separate, explicit action. */
