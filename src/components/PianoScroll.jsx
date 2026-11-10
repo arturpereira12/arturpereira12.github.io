@@ -4,7 +4,7 @@ export function usePianoReveal() {
   useEffect(() => {
     const root = document.querySelector(".home-composition");
     const targets = root.querySelectorAll(
-      ".about-section, .trajectory-section .section-heading, .experience-row, .selected-section .section-heading, .project-preview, .awards-section .page-heading, .award-row, .contact-page .page-heading, .email-link, .contact-options",
+      ".about-section, .trajectory-section .section-heading, .experience-row, .selected-section .section-heading, .project-preview, .awards-section .page-heading, .award-row, .contact-page .page-heading, .email-contact-row, .contact-options",
     );
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const observer = new IntersectionObserver(
@@ -51,12 +51,12 @@ export default function PianoFinale() {
         : reachedPageEnd
           ? 1
           : Math.max(
-            0,
-            Math.min(
-              1,
-              (window.innerHeight - rect.top) /
-                (window.innerHeight + rect.height * 0.15),
-            ),
+              0,
+              Math.min(
+                1,
+                (window.innerHeight - rect.top) /
+                  (window.innerHeight + rect.height * 0.15),
+              ),
             );
       section.style.setProperty("--finale-progress", progress);
       section.style.setProperty(

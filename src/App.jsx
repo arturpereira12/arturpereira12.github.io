@@ -14,6 +14,33 @@ const legacy = {
   "/awards": "conquistas",
   "/contact": "contato",
 };
+function BrandMark({ footer = false }) {
+  return (
+    <a
+      className={footer ? "brand brand-footer" : "brand"}
+      href="#inicio"
+      aria-label="Artur Pereira, início"
+      onPointerUp={(event) => {
+        if (event.pointerType === "touch") event.currentTarget.focus({ preventScroll: true });
+      }}
+    >
+      <span className="logo-flags" aria-hidden="true">
+        <svg width="18" height="12" viewBox="0 0 18 12">
+          <rect width="18" height="12" fill="#009739" />
+          <path d="M2 6 9 1.5 16 6 9 10.5Z" fill="#ffdf00" />
+          <circle cx="9" cy="6" r="2.7" fill="#002776" />
+          <path d="M6.4 5.5Q9 5 11.3 7" fill="none" stroke="white" strokeWidth=".6" />
+        </svg>
+        <svg width="18" height="12" viewBox="0 0 18 12">
+          <path d="M0 0h6v12H0z" fill="#009246" />
+          <path d="M6 0h6v12H6z" fill="#fff" />
+          <path d="M12 0h6v12h-6z" fill="#ce2b37" />
+        </svg>
+      </span>
+      <span className="brand-mark">ap.</span>
+    </a>
+  );
+}
 export default function App() {
   const navigation = useRef(null),
     menuButton = useRef(null);
@@ -102,9 +129,7 @@ export default function App() {
         Pular para o conteúdo
       </a>
       <header className="site-header">
-        <a className="brand" href="#inicio" aria-label="Artur Pereira, início">
-          <span className="brand-mark">ap.</span>
-        </a>
+        <BrandMark />
         <nav
           ref={navigation}
           id="navigation"
@@ -169,10 +194,8 @@ export default function App() {
       </main>
       <footer className="site-footer">
         <div>
-          <a className="brand-mark" href="#inicio">
-            ap.
-          </a>
-          <p>Software, dados e novas possibilidades.</p>
+          <BrandMark footer />
+          <p>Pesquisa, dados e inteligência artificial.</p>
         </div>
         <div className="footer-links">
           <a
@@ -194,10 +217,16 @@ export default function App() {
               Currículo <Download size={15} aria-hidden="true" />
             </summary>
             <div>
-              <a href={`${import.meta.env.BASE_URL}Artur-Pereira-CV-PTBR.pdf`} download>
+              <a
+                href={`${import.meta.env.BASE_URL}Artur-Pereira-CV-PTBR.pdf`}
+                download
+              >
                 Português
               </a>
-              <a href={`${import.meta.env.BASE_URL}Artur-Pereira-CV-EN.pdf`} download>
+              <a
+                href={`${import.meta.env.BASE_URL}Artur-Pereira-CV-EN.pdf`}
+                download
+              >
                 English
               </a>
             </div>

@@ -1,21 +1,20 @@
 export const experiences = [
   {
-    company: "BTG Pactual",
-    role: "Estagiário de Automação",
-    period: "jun 2026 — atual",
-    current: true,
-    tags: ["AWS", "Automação", "CI/CD"],
-    description:
-      "Projeto e manutenção de soluções de automação ponta a ponta na AWS, com arquiteturas escaláveis, pipelines de deploy CI/CD e otimização de fluxos em produção. Colaboração com stakeholders e usuários finais no levantamento de requisitos e nos testes de aceitação do usuário (UAT).",
-  },
-  {
-    company: "LOTEP / ARIA · UFPB",
-    role: "Pesquisador Desenvolvedor de IA",
+    company: "ARIA · UFPB",
+    role: "Pesquisador",
     period: "nov 2025 — atual",
     current: true,
     tags: ["Python", "Pandas", "Dash"],
     description:
-      "Visualização de dados na parceria entre a ARIA e a LOTEP, órgão responsável por regular operações de jogos na Paraíba. Desenvolvimento de dashboards interativos e ferramentas de relatórios para apoiar a tomada de decisão executiva.",
+      "Pesquisa aplicada e visualização de dados na parceria entre o ARIA e a LOTEP, órgão responsável por regular operações de jogos na Paraíba. Desenvolvimento de dashboards interativos e ferramentas de relatórios para apoiar a tomada de decisão executiva.",
+  },
+  {
+    company: "BTG Pactual",
+    role: "Estagiário de Automação",
+    period: "jun 2026 — nov 2026",
+    tags: ["AWS", "Automação", "CI/CD"],
+    description:
+      "Projeto e manutenção de soluções de automação ponta a ponta na AWS, com arquiteturas escaláveis, pipelines de deploy CI/CD e otimização de fluxos em produção. Colaboração com stakeholders e usuários finais no levantamento de requisitos e nos testes de aceitação do usuário (UAT).",
   },
   {
     company: "Gabinete da Deputada Federal Tabata Amaral",

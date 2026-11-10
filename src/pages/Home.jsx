@@ -11,7 +11,7 @@ export default function Home() {
     <div className="home-composition">
       <section className="piano-hero page" id="inicio">
         <div className="hero-overline">
-          <span>Software, dados & IA</span>
+          <span>Pesquisa, dados & IA</span>
           <span>João Pessoa, Brasil</span>
         </div>
         <h1>
@@ -19,25 +19,9 @@ export default function Home() {
         </h1>
         <div className="hero-introduction">
           <p>
-            Ciência da Computação - UFPB.
+            Ciência da Computação — UFPB.
             <br />
-            Automação no{" "}
-            <a
-              className="piano-name-link"
-              href="https://www.btgpactual.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              BTG Pactual
-              <span className="link-keyboard" aria-hidden="true">
-                {Array.from({ length: 7 }, (_, i) => (
-                  <span key={i} style={{ "--note-order": i }} />
-                ))}
-              </span>
-            </a>
-            .
-            <br />
-            Pesquisa no{" "}
+            Pesquisador no{" "}
             <a
               className="piano-name-link"
               href="https://aria.ci.ufpb.br/"
@@ -52,11 +36,6 @@ export default function Home() {
               </span>
             </a>
             .
-          </p>
-          <p>
-            Código com intenção.
-            <br />
-            Espaço para a próxima nota.
           </p>
         </div>
         <Piano />
@@ -77,14 +56,13 @@ export default function Home() {
         </div>
         <div>
           <p className="large-copy">
-            Entre visão computacional, dados e automação, transformo o que
-            aprendo em ferramentas para problemas reais.
+            Como pesquisador no ARIA, desenvolvo soluções em visão
+            computacional, dados e inteligência artificial para problemas reais.
           </p>
           <p>
-            Minha trajetória conecta pesquisa no ARIA, análise de dados aplicada
-            a políticas públicas e desenvolvimento de soluções em produção. Este
-            espaço reúne as experiências e os projetos que fazem parte desse
-            caminho.
+            Minha trajetória conecta pesquisa aplicada, análise de dados para
+            políticas públicas e desenvolvimento de software. Este espaço reúne
+            as experiências e os projetos que fazem parte desse caminho.
           </p>
           <div className="education">
             <img
@@ -98,6 +76,16 @@ export default function Home() {
               <h3>Ciência da Computação</h3>
               <p>Universidade Federal da Paraíba</p>
               <span>jun 2024 — dez 2027 (previsão) · GPA 8,98/10</span>
+            </div>
+          </div>
+          <div className="education education-secondary">
+            <span className="education-monogram" aria-hidden="true">
+              UN
+            </span>
+            <div>
+              <h3>Estudante visitante · Data Science</h3>
+              <p>Università degli Studi di Napoli Federico II (UNINA)</p>
+              <span>fev 2027 — jul 2027 · Nápoles, Itália</span>
             </div>
           </div>
         </div>

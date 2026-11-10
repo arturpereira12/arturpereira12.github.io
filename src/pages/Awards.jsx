@@ -34,7 +34,6 @@ export default function Awards({ embedded = false }) {
       className="page inner-page awards-section"
     >
       <div className="page-heading">
-        <p>Aprendizado que vai além da sala de aula</p>
         <Heading>Conquistas pelo caminho.</Heading>
         <p>Reconhecimentos em escrita, ciência e olimpíadas acadêmicas.</p>
       </div>

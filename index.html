@@ -5,25 +5,40 @@
     <link rel="icon" type="image/svg+xml" href="/portfolio-icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#101112" />
-    <script>document.documentElement.dataset.theme = localStorage.getItem('portfolio-theme') === 'light' ? 'light' : 'dark'</script>
-    <meta name="description" content="Artur Pereira: estudante de Ciência da Computação - UFPB, estagiário de Automação no BTG Pactual e pesquisador desenvolvedor de IA. Conheça minha trajetória e meus projetos." />
-    <meta name="keywords" content="portfolio, software engineer, machine learning, python, java, web development" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <title>Artur Pereira | Software, automação e IA</title>
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("portfolio-theme") === "light" ? "light" : "dark";
+    </script>
+    <meta
+      name="description"
+      content="Artur Pereira: estudante de Ciência da Computação na UFPB e pesquisador no ARIA, com atuação em dados e inteligência artificial. Conheça minha trajetória e meus projetos."
+    />
+    <meta
+      name="keywords"
+      content="portfolio, software engineer, machine learning, python, java, web development"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Artur Pereira | Pesquisa, dados e IA</title>
 
     <!-- GitHub Pages SPA Script -->
     <script type="text/javascript">
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) {
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash,
           );
         }
-      }(window.location))
+      })(window.location);
     </script>
   </head>
   <body>

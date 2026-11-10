@@ -1199,7 +1199,7 @@ button:focus-visible {
 }
 .hero-introduction {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   text-align: left;
   margin: 32px auto 0;
   max-width: 880px;
@@ -1208,9 +1208,10 @@ button:focus-visible {
 .hero-introduction p {
   font-size: 14px;
   line-height: 1.7;
+  width: 100%;
 }
 .hero-introduction p:last-child {
-  text-align: right;
+  text-align: left;
 }
 @media (max-width: 720px) {
   .hero-overline {
@@ -1794,46 +1795,304 @@ html {
 }
 
 /* A sculptural upright piano answers each contact link. */
-.contact-piano-link { position: relative; isolation: isolate; }
-.contact-piano-link:focus-visible { outline: 2px solid var(--ink); outline-offset: 7px; }
-.contact-piano { position: absolute; right: 12px; bottom: 100%; width: 116px; height: 116px; pointer-events: none; opacity: 0; transform: translateY(20px) rotate(-12deg) scale(.72); transform-origin: bottom center; transition: opacity 220ms ease, transform 450ms cubic-bezier(.2,.8,.2,1); z-index: 3; }
-.contact-piano > svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.contact-piano-link {
+  position: relative;
+  isolation: isolate;
+}
+.contact-piano-link:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 7px;
+}
+.contact-piano {
+  position: absolute;
+  right: 12px;
+  bottom: 100%;
+  width: 116px;
+  height: 116px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(20px) rotate(-12deg) scale(0.72);
+  transform-origin: bottom center;
+  transition:
+    opacity 220ms ease,
+    transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 3;
+}
+.contact-piano > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
 .contact-piano-link:hover .contact-piano,
-.contact-piano-link:focus-visible .contact-piano { opacity: 1; transform: translateY(8px) rotate(0deg) scale(1); }
-.contact-piano-instrument { transform-origin: 75px 100px; }
-.email-link.piano-reveal.is-revealed,
+.contact-piano-link:focus-visible .contact-piano {
+  opacity: 1;
+  transform: translateY(8px) rotate(0deg) scale(1);
+}
+.contact-piano-instrument {
+  transform-origin: 75px 100px;
+}
+.email-contact-row.piano-reveal.is-revealed,
 .contact-options.piano-reveal.is-revealed {
   /* The miniature pianos extend above the links after their scroll reveal. */
   clip-path: none;
   animation: none;
   overflow: visible;
 }
-.email-link.contact-piano-link { z-index: 4; }
-.contact-page .page-heading { position: relative; z-index: 1; }
-.resume-picker { min-width: 0; }
+.email-contact-row.contact-piano-link {
+  z-index: 4;
+}
+.contact-page .page-heading {
+  position: relative;
+  z-index: 1;
+}
+.resume-picker {
+  min-width: 0;
+}
 .resume-picker summary,
-.footer-resume-picker summary { list-style: none; cursor: pointer; }
+.footer-resume-picker summary {
+  list-style: none;
+  cursor: pointer;
+}
 .resume-picker summary::-webkit-details-marker,
-.footer-resume-picker summary::-webkit-details-marker { display: none; }
+.footer-resume-picker summary::-webkit-details-marker {
+  display: none;
+}
 .resume-picker summary:focus-visible,
-.footer-resume-picker summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 7px; }
-.resume-options { display: grid; gap: 8px; margin-top: 17px; padding-top: 14px; border-top: 1px solid var(--line); }
-.resume-options a { display: flex; align-items: center; justify-content: space-between; padding: 7px 0; font-size: 14px; }
-.resume-options a:hover { text-decoration: underline; text-underline-offset: 4px; }
-.footer-resume-picker { position: relative; }
-.footer-resume-picker summary { display: flex; align-items: center; gap: 5px; }
-.footer-resume-picker > div { position: absolute; right: 0; bottom: calc(100% + 10px); min-width: 130px; padding: 9px 12px; display: grid; gap: 7px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; z-index: 5; }
-.footer-resume-picker:not([open]) > div { display: none; }
-.contact-piano-key { transform-box: fill-box; transform-origin: top center; }
-.email-link > svg { flex-shrink: 0; }
-.email-link > svg:last-of-type { margin-left: auto; }
+.footer-resume-picker summary:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 7px;
+}
+.resume-options {
+  display: grid;
+  gap: 8px;
+  margin-top: 17px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.resume-options a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+  font-size: 14px;
+}
+.resume-options a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.footer-resume-picker {
+  position: relative;
+}
+.footer-resume-picker summary {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.footer-resume-picker > div {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 10px);
+  min-width: 130px;
+  padding: 9px 12px;
+  display: grid;
+  gap: 7px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  z-index: 5;
+}
+.footer-resume-picker:not([open]) > div {
+  display: none;
+}
+.contact-piano-key {
+  transform-box: fill-box;
+  transform-origin: top center;
+}
+.email-link > svg {
+  flex-shrink: 0;
+}
+.email-link > svg:last-of-type {
+  margin-left: auto;
+}
 @media (prefers-reduced-motion: no-preference) {
   .contact-piano-link:hover .contact-piano-instrument,
-  .contact-piano-link:focus-visible .contact-piano-instrument { animation: contact-piano-sway 2200ms ease-in-out infinite; }
+  .contact-piano-link:focus-visible .contact-piano-instrument {
+    animation: contact-piano-sway 2200ms ease-in-out infinite;
+  }
   .contact-piano-link:hover .contact-piano-key,
-  .contact-piano-link:focus-visible .contact-piano-key { animation: contact-piano-play 1200ms ease-in-out infinite; animation-delay: calc(var(--key-order) * 85ms); }
-  @keyframes contact-piano-sway { 0%,100% { transform: rotate(-3deg) translateY(0); } 50% { transform: rotate(3deg) translateY(-4px); } }
-  @keyframes contact-piano-play { 0%,35%,100% { transform: scaleY(1); } 15% { transform: scaleY(.72); } }
+  .contact-piano-link:focus-visible .contact-piano-key {
+    animation: contact-piano-play 1200ms ease-in-out infinite;
+    animation-delay: calc(var(--key-order) * 85ms);
+  }
+  @keyframes contact-piano-sway {
+    0%,
+    100% {
+      transform: rotate(-3deg) translateY(0);
+    }
+    50% {
+      transform: rotate(3deg) translateY(-4px);
+    }
+  }
+  @keyframes contact-piano-play {
+    0%,
+    35%,
+    100% {
+      transform: scaleY(1);
+    }
+    15% {
+      transform: scaleY(0.72);
+    }
+  }
 }
-@media (prefers-reduced-motion: reduce) { .contact-piano { transition: none; } }
-@media (max-width: 720px) { .contact-piano { width: 88px; height: 88px; right: 4px; } }
+@media (prefers-reduced-motion: reduce) {
+  .contact-piano {
+    transition: none;
+  }
+}
+@media (max-width: 720px) {
+  .contact-piano {
+    width: 88px;
+    height: 88px;
+    right: 4px;
+  }
+}
+
+/* National identity emerges from the AP mark without obscuring navigation. */
+.brand {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+.brand-mark {
+  position: relative;
+  z-index: 2;
+}
+.logo-flags {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  display: flex;
+  gap: 2px;
+  font-size: 15px;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -5px) scale(0.62);
+  transform-origin: center bottom;
+  transition:
+    opacity 180ms ease,
+    transform 360ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.logo-flags > span {
+  display: block;
+  filter: saturate(0.88);
+}
+.brand:hover .logo-flags,
+.brand:focus .logo-flags,
+.brand:focus-visible .logo-flags {
+  opacity: 1;
+  transform: translate(-50%, -28px) scale(1);
+}
+.brand:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 7px;
+  border-radius: 3px;
+}
+.brand-footer .logo-flags {
+  font-size: 13px;
+}
+
+/* Two academic chapters share the same compact visual grammar. */
+.education-secondary {
+  margin-top: 18px;
+  padding-top: 18px;
+}
+.education-monogram {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink) !important;
+  font-family: "Outfit", sans-serif;
+  font-size: 12px !important;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+/* Mail remains a direct link; copying is a separate, explicit action. */
+.email-contact-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.email-contact-row .email-link {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+.email-copy {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 0 13px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--panel);
+  color: var(--ink);
+  font:
+    600 12px/1 "DM Sans",
+    sans-serif;
+  cursor: pointer;
+}
+.email-copy:hover {
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+.email-copy:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 720px) {
+  .email-contact-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .email-contact-row .email-link {
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-flags,
+  .email-copy {
+    transition: none;
+  }
+  .brand:hover .logo-flags,
+  .brand:focus .logo-flags,
+  .brand:focus-visible .logo-flags {
+    transform: translate(-50%, -28px) scale(1);
+  }
+}
